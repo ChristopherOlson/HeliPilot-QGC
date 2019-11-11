@@ -435,7 +435,7 @@
 <value code=" 9">Disabled</value>
 </values>
 </param>
-<param humanName="Channel 6 Tuning" name="ArduCopter:TUNE" documentation="Controls which parameters (normally PID gains) are being tuned with transmitter's channel 6 knob" user="Standard">
+<param humanName="Channel 6" name="ArduCopter:TUNE" documentation="Controls which parameters (normally PID gains) are being tuned with transmitter's channel 6 knob" user="Standard">
 <values>
 <value code="0">None</value>
 <value code="1">Stab Roll/Pitch kP</value>
@@ -493,7 +493,7 @@
 </values>
 <field name="RebootRequired">True</field>
 </param>
-<param humanName="Channel 7 option" name="ArduCopter:CH7_OPT" documentation="Select which function is performed when CH7 is above 1800 pwm" user="Standard">
+<param humanName="Channel 7" name="ArduCopter:CH7_OPT" documentation="Select which function is performed when CH7 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -533,12 +533,12 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">InvertedFlight</value>
+<value code=" 43">HeliGovernor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
 </param>
-<param humanName="Channel 8 option" name="ArduCopter:CH8_OPT" documentation="Select which function is performed when CH8 is above 1800 pwm" user="Standard">
+<param humanName="Channel 8" name="ArduCopter:CH8_OPT" documentation="Select which function is performed when CH8 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -578,12 +578,12 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">InvertedFlight</value>
+<value code=" 43">HeliGovernor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
 </param>
-<param humanName="Channel 9 option" name="ArduCopter:CH9_OPT" documentation="Select which function is performed when CH9 is above 1800 pwm" user="Standard">
+<param humanName="Channel 9" name="ArduCopter:CH9_OPT" documentation="Select which function is performed when CH9 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -623,12 +623,12 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">InvertedFlight</value>
+<value code=" 43">HeliGovernor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
 </param>
-<param humanName="Channel 10 option" name="ArduCopter:CH10_OPT" documentation="Select which function is performed when CH10 is above 1800 pwm" user="Standard">
+<param humanName="Channel 10" name="ArduCopter:CH10_OPT" documentation="Select which function is performed when CH10 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -668,12 +668,12 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">InvertedFlight</value>
+<value code=" 43">HeliGovernor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
 </param>
-<param humanName="Channel 11 option" name="ArduCopter:CH11_OPT" documentation="Select which function is performed when CH11 is above 1800 pwm" user="Standard">
+<param humanName="Channel 11" name="ArduCopter:CH11_OPT" documentation="Select which function is performed when CH11 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -713,12 +713,12 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">InvertedFlight</value>
+<value code=" 43">HeliGovernor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
 </param>
-<param humanName="Channel 12 option" name="ArduCopter:CH12_OPT" documentation="Select which function is performed when CH12 is above 1800 pwm" user="Standard">
+<param humanName="Channel 12" name="ArduCopter:CH12_OPT" documentation="Select which function is performed when CH12 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -758,7 +758,7 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">InvertedFlight</value>
+<value code=" 43">HeliGovernor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
@@ -3851,50 +3851,14 @@
 </param>
 </parameters>
 <parameters name="H_">
-<param humanName="Servo 1 Position" name="H_SV1_POS" documentation="Angular location of swash servo #1 - only used for H3 swash type" user="Standard">
-<field name="Range">-180 180</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
-</param>
-<param humanName="Servo 2 Position" name="H_SV2_POS" documentation="Angular location of swash servo #2 - only used for H3 swash type" user="Standard">
-<field name="Range">-180 180</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
-</param>
-<param humanName="Servo 3 Position" name="H_SV3_POS" documentation="Angular location of swash servo #3 - only used for H3 swash type" user="Standard">
-<field name="Range">-180 180</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
-</param>
-<param humanName="Tail Type" name="H_TAIL_TYPE" documentation="Tail type selection.  Simpler yaw controller used if external gyro is selected" user="Standard">
-<values>
-<value code="0">Servo only</value>
-<value code="1">Servo with ExtGyro</value>
-<value code="2">DirectDrive VarPitch</value>
-<value code="3">DirectDrive FixedPitch</value>
-</values>
-</param>
 <param humanName="Swash Type" name="H_SWASH_TYPE" documentation="Swash Type Setting" user="Standard">
 <values>
-<value code="0">H3 CCPM Adjustable</value>
-<value code=" 1">H1 Straight Swash</value>
+<value code=" 1">H1 Non-CCPM</value>
 <value code=" 2">H3_140 CCPM</value>
+<value code=" 3">H3_120 CCPM</value>
+<value code=" 4">H4_90 CCPM</value>
+<value code=" 5">H4_45 CCPM</value>
 </values>
-</param>
-<param humanName="External Gyro Gain" name="H_GYR_GAIN" documentation="PWM in microseconds sent to external gyro on ch7 when tail type is Servo w/ ExtGyro" user="Standard">
-<field name="Range">0 1000</field>
-<field name="Increment">1</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
-</param>
-<param humanName="Swashplate Phase Angle Compensation" name="H_PHANG" documentation="Only for H3 swashplate.  If pitching the swash forward induces a roll, this can be correct the problem" user="Advanced">
-<field name="Range">-30 30</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
 </param>
 <param humanName="Collective-Yaw Mixing" name="H_COLYAW" documentation="Feed-forward compensation to automatically add rudder input when collective pitch is increased. Can be positive or negative depending on mechanics." user="Advanced">
 <field name="Range">-10 10</field>
@@ -3906,129 +3870,41 @@
 <value code="1">Flybar</value>
 </values>
 </param>
-<param humanName="Direct Drive VarPitch Tail ESC speed" name="H_TAIL_SPEED" documentation="Direct Drive VarPitch Tail ESC speed in PWM microseconds.  Only used when TailType is DirectDrive VarPitch" user="Standard">
-<field name="Range">0 1000</field>
-<field name="Increment">1</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
-</param>
-<param humanName="External Gyro Gain for ACRO" name="H_GYR_GAIN_ACRO" documentation="PWM in microseconds sent to external gyro on ch7 when tail type is Servo w/ ExtGyro. A value of zero means to use H_GYR_GAIN" user="Standard">
-<field name="Range">0 1000</field>
-<field name="Increment">1</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
-</param>
-<param humanName="Collective Control Direction" name="H_COL_CTRL_DIR" documentation="Collective Control Direction - 0 for Normal. 1 for Reversed" user="Standard">
+<param humanName="Collective Direction" name="H_SWASH_COLL_DIR" documentation="Collective Control Direction - 0 for Normal. 1 for Reversed" user="Standard">
 <values>
 <value code="0">Normal</value>
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo 1 Position" name="H_SV1_POS" documentation="Angular location of swash servo #1" user="Standard">
-<field name="Range">-180 180</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
-</param>
-<param humanName="Servo 2 Position" name="H_SV2_POS" documentation="Angular location of swash servo #2" user="Standard">
-<field name="Range">-180 180</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
-</param>
-<param humanName="Servo 3 Position" name="H_SV3_POS" documentation="Angular location of swash servo #3" user="Standard">
-<field name="Range">-180 180</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
-</param>
-<param humanName="Servo 4 Position" name="H_SV4_POS" documentation="Angular location of swash servo #4" user="Standard">
-<field name="Range">-180 180</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
-</param>
-<param humanName="Servo 5 Position" name="H_SV5_POS" documentation="Angular location of swash servo #5" user="Standard">
-<field name="Range">-180 180</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
-</param>
-<param humanName="Servo 6 Position" name="H_SV6_POS" documentation="Angular location of swash servo #6" user="Standard">
-<field name="Range">-180 180</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
-</param>
-<param humanName="Swashplate 1 Phase Angle Compensation" name="H_PHANG1" documentation="Phase angle correction for rotor head.  If pitching the swash forward induces a roll, this can be correct the problem" user="Advanced">
-<field name="Range">-90 90</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
-</param>
-<param humanName="Swashplate 2 Phase Angle Compensation" name="H_PHANG2" documentation="Phase angle correction for rotor head.  If pitching the swash forward induces a roll, this can be correct the problem" user="Advanced">
-<field name="Range">-90 90</field>
-<field name="Increment">1</field>
-<field name="Units">deg</field>
-<field name="UnitText">degrees</field>
-</param>
-<param humanName="Dual Mode" name="H_DUAL_MODE" documentation="Sets the dual mode of the heli, either as tandem or as transverse." user="Standard">
+<param humanName="Swash Linear" name="H_SWASH_LINEAR" documentation="This setting is primarily for four-servo swashplates to prevent servo binding. It linearizes the swashplate servo's mechanical output to account for nonlinear output due to arm rotation. This requires a specific mechanical setup procedure to work properly. The servo arm must be centered on the mechanical throw at the servo trim position and the servo trim position kept as close to 1500 pwm as possible. Leveling the swashplate can only be done through the swash links. After the swashplate is level the pitch links should be adjusted at a value of 1500 pwm to achieve zero blade pitch" user="Standard">
 <values>
-<value code="0">Longitudinal</value>
-<value code=" 1">Transverse</value>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
 </values>
 </param>
-<param humanName="Differential-Collective-Pitch Scaler" name="H_DCP_SCALER" documentation="Scaling factor applied to the differential-collective-pitch" user="Standard">
-<field name="Range">0 1</field>
+<param humanName="Collective Pitch Minimum" name="H_COL_MIN" documentation="Minimum blade pitch. Must be set for proper autorotation performance at best autorotation airspeed" user="Standard">
+<field name="Range">1000 2000</field>
+<field name="Increment">1</field>
+<field name="Units">PWM</field>
+<field name="UnitText">PWM in microseconds</field>
 </param>
-<param humanName="Differential-Collective-Pitch Yaw Mixing" name="H_DCP_YAW" documentation="Feed-forward compensation to automatically add yaw input when differential collective pitch is applied.">
+<param humanName="Collective Pitch Maximum" name="H_COL_MAX" documentation="Maximum blade pitch. Must be set to correspond with maximum available engine torque at full collective climb at ISA (International Standard Atmosphere)" user="Standard">
+<field name="Range">1000 2000</field>
+<field name="Increment">1</field>
+<field name="Units">PWM</field>
+<field name="UnitText">PWM in microseconds</field>
+</param>
+<param humanName="Collective Pitch Zero Thrust" name="H_COL_MID" documentation="Swash servo position in PWM microseconds corresponding to zero collective pitch (or zero lift for Asymmetrical blades)" user="Standard">
+<field name="Range">1000 2000</field>
+<field name="Increment">1</field>
+<field name="Units">PWM</field>
+<field name="UnitText">PWM in microseconds</field>
+</param>
+<param humanName="Collective-Yaw Mixing" name="H_COL_YAW" documentation="Feed-forward compensation to automatically add rudder input when collective pitch is changed. Can be positive or negative depending on mechanics." user="Standard">
 <field name="Range">-10 10</field>
-<field name="Increment">0.1</field>
-</param>
-<param humanName="Scaler for yaw mixing" name="H_YAW_SCALER" documentation="Scaler for mixing yaw into roll or pitch.">
-<field name="Range">-10 10</field>
-<field name="Increment">0.1</field>
-</param>
-<param humanName="Collective Pitch Minimum for rear swashplate" name="H_COL2_MIN" documentation="Lowest possible servo position in PWM microseconds for the rear swashplate" user="Standard">
-<field name="Range">1000 2000</field>
 <field name="Increment">1</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
 </param>
-<param humanName="Collective Pitch Maximum for rear swashplate" name="H_COL2_MAX" documentation="Highest possible servo position in PWM microseconds for the rear swashplate" user="Standard">
-<field name="Range">1000 2000</field>
-<field name="Increment">1</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
-</param>
-<param humanName="Collective Pitch Mid-Point for rear swashplate" name="H_COL2_MID" documentation="Swash servo position in PWM microseconds corresponding to zero collective pitch for the rear swashplate (or zero lift for Asymmetrical blades)" user="Standard">
-<field name="Range">1000 2000</field>
-<field name="Increment">1</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
-</param>
-<param humanName="Collective Control Direction" name="H_COL_CTRL_DIR" documentation="Collective Control Direction - 0 for Normal. 1 for Reversed" user="Standard">
-<field name="Values">0: Normal, 1: Reversed</field>
-</param>
-<param humanName="Collective Pitch Minimum" name="H_COL_MIN" documentation="Lowest possible servo position in PWM microseconds for the swashplate" user="Standard">
-<field name="Range">1000 2000</field>
-<field name="Increment">1</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
-</param>
-<param humanName="Collective Pitch Maximum" name="H_COL_MAX" documentation="Highest possible servo position in PWM microseconds for the swashplate" user="Standard">
-<field name="Range">1000 2000</field>
-<field name="Increment">1</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
-</param>
-<param humanName="Collective Pitch Mid-Point" name="H_COL_MID" documentation="Swash servo position in PWM microseconds corresponding to zero collective pitch (or zero lift for Asymmetrical blades)" user="Standard">
-<field name="Range">1000 2000</field>
-<field name="Increment">1</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
-</param>
-<param humanName="Manual Servo Mode" name="H_SV_MAN" documentation="Manual servo override for swash set-up. Do not set this manually!" user="Standard">
+<param humanName="Swash Setup Mode" name="H_SWASH_SETUP" documentation="Manual servo override for swash set-up. Do not set this manually!" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">Passthrough</value>
@@ -4037,101 +3913,121 @@
 <value code="4">Min collective</value>
 </values>
 </param>
-<param humanName="External Motor Governor Setpoint" name="H_RSC_SETPOINT" documentation="PWM in microseconds passed to the external motor governor when external governor is enabled" user="Standard">
-<field name="Range">0 1000</field>
-<field name="Increment">10</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
-</param>
-<param humanName="Rotor Speed Control Mode" name="H_RSC_MODE" documentation="Determines the method of rotor speed control" user="Standard">
-<values>
-<value code="1">Ch8 Input</value>
-<value code=" 2">SetPoint</value>
-<value code=" 3">Throttle Curve</value>
-</values>
-</param>
-<param humanName="Landing Collective Minimum" name="H_LAND_COL_MIN" documentation="Minimum collective position in PWM microseconds while landed or landing" user="Standard">
-<field name="Range">0 500</field>
-<field name="Increment">1</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
-</param>
-<param humanName="RSC Ramp Time" name="H_RSC_RAMP_TIME" documentation="Time in seconds for the output to the main rotor's ESC to reach full speed" user="Standard">
+<param humanName="Throttle Ramp Time" name="H_THROTTLE_RAMP" documentation="Time in seconds for throttle to ramp from ground idle to low idle power when throttle hold is released. This setting is used primarily by piston and turbine engines to smoothly engage the transmission clutch. However, it can also be used for electric ESC's that do not have an internal soft-start. If used with electric ESC with soft-start it is recommended to set this to 1 second so as to not confuse the ESC's soft-start function" user="Standard">
 <field name="Range">0 60</field>
-<field name="Units">s</field>
+<field name="Units">seconds</field>
 <field name="UnitText">seconds</field>
 </param>
-<param humanName="RSC Runup Time" name="H_RSC_RUNUP_TIME" documentation="Time in seconds for the main rotor to reach full speed.  Must be longer than RSC_RAMP_TIME" user="Standard">
+<param humanName="Rotor Runup Time" name="H_ROTOR_RUNUP" documentation="Time in seconds for the main rotor to reach critical speed when going from throttle hold to flight power. Set to zero to use rotor speed sensor for runup. If not using rotor speed sensor the rotor runup must be at least 1 second longer than the throttle ramp time. !WARNING! - when measured rotor speed is not used to determine runup, setting rotor runup time to an excessively high value can cause rapid power recovery from throttle hold in flight, resulting in blade lag, dynamic imblance and potentially destroying the helicopter. With all electric helicopters it is recommended to set rotor runup one second longer than throttle ramp time. Flight is not approved for piston and turbine helicopters without rotor speed sensor installed and operating." user="Standard">
 <field name="Range">0 60</field>
-<field name="Units">s</field>
+<field name="Units">seconds</field>
 <field name="UnitText">seconds</field>
 </param>
-<param humanName="Critical Rotor Speed" name="H_RSC_CRITICAL" documentation="Rotor speed below which flight is not possible" user="Standard">
-<field name="Range">0 1000</field>
+<param humanName="Headspeed RPM" name="H_ROTOR_RPM" documentation="Set to the rotor rpm your helicopter runs in flight. When a speed sensor is installed the rotor governor maintains this speed. Also used for autorotation and for runup. For governor operation this should be set 10 rpm higher than the actual desired headspeed to allow for governor droop" user="Standard">
+<field name="Range">0 3500</field>
 <field name="Increment">10</field>
+<field name="Units">Rrpm</field>
+<field name="UnitText">RPM</field>
 </param>
-<param humanName="Rotor Speed Output at Idle" name="H_RSC_IDLE" documentation="Rotor speed output while armed but rotor control speed is not engaged" user="Standard">
-<field name="Range">0 500</field>
-<field name="Increment">10</field>
-</param>
-<param humanName="Cyclic Pitch Angle Max" name="H_CYC_MAX" documentation="Maximum pitch angle of the swash plate" user="Advanced">
-<field name="Range">0 18000</field>
-<field name="Increment">100</field>
-<field name="Units">cdeg</field>
-<field name="UnitText">centidegrees</field>
-</param>
-<param humanName="Boot-up Servo Test Cycles" name="H_SV_TEST" documentation="Number of cycles to run servo test on boot-up" user="Standard">
-<field name="Range">0 10</field>
+<param humanName="Critical Rotor Speed" name="H_ROTOR_CRITICAL" documentation="Percentage of normal rotor speed where entry to autorotation becomes dangerous. For helicopters with rotor speed sensor should be set to a percentage of the rotor rpm setting. Even if governor is not used when a speed sensor is installed, set the rotor rpm to normal headspeed then set critical to a percentage of normal rpm (usually 90%). This can be considered the bottom of the warning arc for autorotation. For helicopters without rotor speed sensor should be set to 50%. Lack of a speed
+sensor results in using an estimated rotor speed instead of actual and is only marginally accurate." user="Standard">
+<field name="Range">0 95</field>
 <field name="Increment">1</field>
+<field name="Units">%Rrpm</field>
+<field name="UnitText">percent</field>
 </param>
-<param humanName="Throttle servo slew rate" name="H_RSC_SLEWRATE" documentation="This controls the maximum rate at which the throttle output can change, as a percentage per second. A value of 100 means the throttle can change over its full range in one second. A value of zero gives unlimited slew rate." user="Standard">
-<field name="Range">0 500</field>
-<field name="Increment">10</field>
+<param humanName="Engine Ground Idle" name="H_THROTTLE_IDLE" documentation="FOR COMBUSTION ENGINES. Sets the engine ground idle throttle percentage with clutch disengaged, and for engine start. This must be set to zero for electric helicopters under most situations. If the ESC has an autorotation window this can be set to keep the autorotation window open in the ESC. Consult the operating manual for your ESC to set it properly for this purpose" user="Standard">
+<field name="Range">0 50</field>
+<field name="Increment">1</field>
+<field name="Units">%throttle</field>
+<field name="UnitText">percent</field>
 </param>
-<param humanName="Throttle Servo Position for 0 percent collective" name="H_RSC_THRCRV_0" documentation="Throttle Servo Position for 0 percent collective. This is on a scale from 0 to 1000, where 1000 is full throttle and 0 is zero throttle. Actual PWM values are controlled by SERVOX_MIN and SERVOX_MAX. The 0 percent collective is defined by H_COL_MIN and 100 percent collective is defined by H_COL_MAX." user="Standard">
+<param humanName="Cyclic Swash Tilt" name="H_CYCLIC_DEG" documentation="Cyclic tilt angle of the swashplate. Normally set this to whatever it takes to get 8 degrees of cyclic pitch" user="Standard">
+<field name="Range">0 45</field>
+<field name="Increment">1</field>
+<field name="Units">degrees</field>
+<field name="UnitText">degrees</field>
+</param>
+<param humanName="Throttle P1" name="H_THROTTLE_P1" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate all the way to its maximum negative or low collective pitch position. This setting corresponds to low idle with the governor switched off. Rotors should be turning at slow speed with clutch fully engaged at this throttle setting. With governor switched on and engaged this setting will correspond to flight idle power, which is the minimum amount of power the helicopter can still fly at. With the governor TCGAIN set
+correctly this should result in drop of rotor speed by 2.5% from nominal with pitch feathered" user="Standard">
 <field name="Range">0 1000</field>
 <field name="Increment">10</field>
+<field name="Units">%throttle</field>
+<field name="UnitText">percent</field>
 </param>
-<param humanName="Throttle Servo Position for 25 percent collective" name="H_RSC_THRCRV_25" documentation="Throttle Servo Position for 25 percent collective. This is on a scale from 0 to 1000, where 1000 is full throttle and 0 is zero throttle. Actual PWM values are controlled by SERVOX_MIN and SERVOX_MAX. The 0 percent collective is defined by H_COL_MIN and 100 percent collective is defined by H_COL_MAX." user="Standard">
+<param humanName="Throttle P2" name="H_THROTTLE_P2" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 25% of it's full collective travel.This may or may not correspond to 25% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 25% of 12 degrees is 3 degrees, so this setting would correspond to +1 degree of positive pitch." user="Standard">
 <field name="Range">0 1000</field>
 <field name="Increment">10</field>
+<field name="Units">%throttle</field>
+<field name="UnitText">percent</field>
 </param>
-<param humanName="Throttle Servo Position for 50 percent collective" name="H_RSC_THRCRV_50" documentation="Throttle Servo Position for 50 percent collective. This is on a scale from 0 to 1000, where 1000 is full throttle and 0 is zero throttle. Actual PWM values are controlled by SERVOX_MIN and SERVOX_MAX. The 0 percent collective is defined by H_COL_MIN and 100 percent collective is defined by H_COL_MAX." user="Standard">
+<param humanName="Throttle P3" name="H_THROTTLE_P3" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 50% of it's full collective travel.This may or may not correspond to 50% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 50% of 12 degrees is 6 degrees, so this setting would correspond to +4 degrees of positive pitch." user="Standard">
 <field name="Range">0 1000</field>
 <field name="Increment">10</field>
+<field name="Units">%throttle</field>
+<field name="UnitText">percent</field>
 </param>
-<param humanName="Throttle Servo Position for 75 percent collective" name="H_RSC_THRCRV_75" documentation="Throttle Servo Position for 75 percent collective. This is on a scale from 0 to 1000, where 1000 is full throttle and 0 is zero throttle. Actual PWM values are controlled by SERVOX_MIN and SERVOX_MAX. The 0 percent collective is defined by H_COL_MIN and 100 percent collective is defined by H_COL_MAX." user="Standard">
+<param humanName="Throttle P4" name="H_THROTTLE_P4" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 75% of it's full collective travel.This may or may not correspond to 75% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 75% of 12 degrees is 9 degrees, so this setting would correspond to +7 degrees of positive pitch.." user="Standard">
 <field name="Range">0 1000</field>
 <field name="Increment">10</field>
+<field name="Units">%throttle</field>
+<field name="UnitText">percent</field>
 </param>
-<param humanName="Throttle Servo Position for 100 percent collective" name="H_RSC_THRCRV_100" documentation="Throttle Servo Position for 100 percent collective. This is on a scale from 0 to 1000, where 1000 is full throttle and 0 is zero throttle. Actual PWM values are controlled by SERVOX_MIN and SERVOX_MAX. The 0 percent collective is defined by H_COL_MIN and 100 percent collective is defined by H_COL_MAX." user="Standard">
+<param humanName="Throttle P5" name="H_THROTTLE_P5" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 100% of it's full collective travel, which is maximum positive pitch." user="Standard">
 <field name="Range">0 1000</field>
 <field name="Increment">10</field>
+<field name="Units">%throttle</field>
+<field name="UnitText">percent</field>
+</param>
+<param humanName="Governor Droop Response" name="H_GOV_DROOP" documentation="Governor droop response under load, normal settings of 0-100%. Higher value is quicker response but may cause surging. Setting to zero disables the governor. Adjust this to be as aggressive as possible without getting surging or Rrpm over-run when the governor engages. Setting over 100% is allowable for some two-spool turbine engines to provide scheduling of the Ng for proper torque response of the Np spool For all piston and turbine engines make the first runup with droop response set to 80%. Increase governor droop response 2% at a time until surging is noted. Disengage the governor switch
+immediately when surging is experienced. Reduce droop response by 5-10% from the point where
+surging is noted" user="Standard">
+<field name="Range">0 150</field>
+<field name="Increment">1</field>
+<field name="Units">percent</field>
+<field name="UnitText">percent</field>
+</param>
+<param humanName="Governor Torque Limiter" name="H_GOV_TORQUE" documentation="Adjusts the maximum engine torque output in the governor response to speed droop of the main rotor when the governor is active. If speed sensor fails or torque output exceeds the torque limiter setting, the governor will disengage and return to throttle curve. Recommended torque limiter setting is 100-120%. Setting the torque limiter to a higher value increases the droop compensation aggressiveness of the governor. Droop compensation is the amount the governor moves the rotor reference speed in relation to measured speed droop. Similar to the adjustment of the torque limiter stops on the Woodward
+governor of the PT6 engine, the torque limiter being set higher will cause the governor to be more aggressive on engagement, and in response to rpm droop. Set the torque limiter to achieve proper engagement and droop compensation without over-torquing the engine. Over-torquing will result in damage to the engine or drivetrain, possible dynamic rotor imbalance due to blade lag, or possible twisting of the helicopter on the pad during runup. Torque should not exceed 108% for two-spool turbines, 100% for single-spool turbines, piston engine throttle output should not exceed 80%, during runup with pitch feathered. Helicopters where the torque limiter is set to the upper range (over 120%) must be placarded, warning against governor being switched on by the pilot until minimum 90% of rated rotor
+speed has been reached during runup." user="Standard">
+<field name="Range">50 200</field>
+<field name="Increment">10</field>
+<field name="Units">percent</field>
+<field name="UnitText">percent</field>
+</param>
+<param humanName="Governor Throttle Curve Gain" name="H_GOV_TCGAIN" documentation="Percentage of throttle curve in governor output. This provides a type of feed-forward response to sudden loading or unloading of the rotor system. If Rrpm drops below Rrpm Low Warning during full collective climb increase the throttle curve gain. If governor fails to drop Rrpm by 2.5%, or auto-disengages the governor, at Flight Idle (pitch feathered) reduce the throttle curve gain. In situations where Rrpm drops to Rrpm Low Warning consistently during full collective climb (over-
+pitching), first ensure that the engine is producing rated torque output under ISA. If engine torque is
+acceptable reduce the maximum collective pitch stop in the Collective Group settings to maintain Rrpm
+above the Rrpm Low Warning range during full collective climb." user="Standard">
+<field name="Range">50 100</field>
+<field name="Increment">1</field>
+<field name="Units">percent</field>
+<field name="UnitText">percent</field>
 </param>
 </parameters>
 <parameters name="IM_">
-<param humanName="Stabilize Mode Collective Point 1" name="IM_STAB_COL_1" documentation="Helicopter's minimum collective pitch setting at zero throttle input in Stabilize mode" user="Standard">
+<param humanName="Stick At Bottom" name="IM_STAB_COL_1" documentation="Helicopter's minimum collective pitch setting at zero throttle input in Stabilize mode" user="Standard">
 <field name="Range">0 500</field>
 <field name="Increment">1</field>
-<field name="Units">d%</field>
+<field name="Units">percent*10</field>
 <field name="UnitText">decipercent</field>
 </param>
-<param humanName="Stabilize Mode Collective Point 2" name="IM_STAB_COL_2" documentation="Helicopter's collective pitch setting at mid-low throttle input in Stabilize mode" user="Standard">
+<param humanName="Stick at 40%" name="IM_STAB_COL_2" documentation="Helicopter's collective pitch setting at mid-low throttle input in Stabilize mode" user="Standard">
 <field name="Range">0 500</field>
 <field name="Increment">1</field>
-<field name="Units">d%</field>
+<field name="Units">percent*10</field>
 <field name="UnitText">decipercent</field>
 </param>
-<param humanName="Stabilize Mode Collective Point 3" name="IM_STAB_COL_3" documentation="Helicopter's collective pitch setting at mid-high throttle input in Stabilize mode" user="Standard">
+<param humanName="Stick at 60%" name="IM_STAB_COL_3" documentation="Helicopter's collective pitch setting at mid-high throttle input in Stabilize mode" user="Standard">
 <field name="Range">500 1000</field>
 <field name="Increment">1</field>
-<field name="Units">d%</field>
+<field name="Units">percent*10</field>
 <field name="UnitText">decipercent</field>
 </param>
-<param humanName="Stabilize Mode Collective Point 4" name="IM_STAB_COL_4" documentation="Helicopter's maximum collective pitch setting at full throttle input in Stabilize mode" user="Standard">
+<param humanName="Stick At Top" name="IM_STAB_COL_4" documentation="Helicopter's maximum collective pitch setting at full throttle input in Stabilize mode" user="Standard">
 <field name="Range">500 1000</field>
 <field name="Increment">1</field>
-<field name="Units">d%</field>
+<field name="Units">percent*10</field>
 <field name="UnitText">decipercent</field>
 </param>
 <param humanName="Acro Mode Collective Expo" name="IM_ACRO_COL_EXP" documentation="Used to soften collective pitch inputs near center point in Acro mode." user="Advanced">
@@ -6765,7 +6661,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="SERVO10_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="Cyclic10_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -6795,13 +6691,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -6870,7 +6766,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="SERVO11_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="Cyclic11_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -6900,13 +6796,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -6975,7 +6871,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="SERVO12_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="Cyclic12_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -7005,13 +6901,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -7080,7 +6976,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="SERVO13_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="Cyclic13_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -7110,13 +7006,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -7185,7 +7081,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="SERVO14_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="Cyclic14_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -7215,13 +7111,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -7290,7 +7186,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="SERVO15_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="Cyclic15_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -7320,13 +7216,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -7395,7 +7291,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="SERVO16_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="Cyclic16_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -7425,13 +7321,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -7530,13 +7426,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -7635,13 +7531,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -7740,13 +7636,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -7845,13 +7741,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -7950,13 +7846,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -8055,13 +7951,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -8160,13 +8056,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -8265,13 +8161,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>
@@ -8370,13 +8266,13 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">HeliRSC</value>
-<value code="32">HeliTailRSC</value>
-<value code="33">Motor1</value>
-<value code="34">Motor2</value>
-<value code="35">Motor3</value>
-<value code="36">Motor4</value>
-<value code="37">Motor5</value>
+<value code="31">HeliThrottle</value>
+<value code="32">NotUsed</value>
+<value code="33">Cyclic1</value>
+<value code="34">Cyclic2</value>
+<value code="35">Cyclic3</value>
+<value code="36">Tail</value>
+<value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
 <value code="40">Motor8</value>

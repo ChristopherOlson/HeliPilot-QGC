@@ -37,50 +37,59 @@ SetupPage {
             property real _margins:     ScreenTools.defaultFontPixelHeight
             property bool _showIcon:    !ScreenTools.isTinyScreen
 
-            property Fact _hSvMan:      controller.getParameterFact(-1, "H_SV_MAN")
-            property Fact _hSv1Pos:     controller.getParameterFact(-1, "H_SV1_POS")
-            property Fact _hSv2Pos:     controller.getParameterFact(-1, "H_SV2_POS")
-            property Fact _hSv3Pos:     controller.getParameterFact(-1, "H_SV3_POS")
-            property Fact _hSwashType:  controller.getParameterFact(-1, "H_SWASH_TYPE")
-            property Fact _hColCtrlDir: controller.getParameterFact(-1, "H_COL_CTRL_DIR")
-            property Fact _hFlybarMode: controller.getParameterFact(-1, "H_FLYBAR_MODE")
-            property Fact _hColMax:     controller.getParameterFact(-1, "H_COL_MAX")
-            property Fact _hColMid:     controller.getParameterFact(-1, "H_COL_MID")
-            property Fact _hColMin:     controller.getParameterFact(-1, "H_COL_MIN")
-            property Fact _hCycMax:     controller.getParameterFact(-1, "H_CYC_MAX")
+            property Fact _hSwashSetup:     controller.getParameterFact(-1, "H_SWASH_SETUP")
+            property Fact _hSwashType:      controller.getParameterFact(-1, "H_SWASH_TYPE")
+            property Fact _hSwashCollDir:   controller.getParameterFact(-1, "H_SWASH_COLL_DIR")
+            property Fact _hSwashLinear:    controller.getParameterFact(-1, "H_SWASH_LINEAR")
+            property Fact _hCyclicDeg:      controller.getParameterFact(-1, "H_CYCLIC_DEG")
 
-            property Fact _hRscMode:        controller.getParameterFact(-1, "H_RSC_MODE")
-            property Fact _hRscCritical:    controller.getParameterFact(-1, "H_RSC_CRITICAL")
-            property Fact _hRscIdle:        controller.getParameterFact(-1, "H_RSC_IDLE")
-            property Fact _hRscRampTime:    controller.getParameterFact(-1, "H_RSC_RAMP_TIME")
-            property Fact _hRscRunupTime:   controller.getParameterFact(-1, "H_RSC_RUNUP_TIME")
-            property Fact _hRscSetpoint:    controller.getParameterFact(-1, "H_RSC_SETPOINT")
-            property Fact _hRscThrcrv0:     controller.getParameterFact(-1, "H_RSC_THRCRV_0")
-            property Fact _hRscThrcrv25:    controller.getParameterFact(-1, "H_RSC_THRCRV_25")
-            property Fact _hRscThrcrv50:    controller.getParameterFact(-1, "H_RSC_THRCRV_50")
-            property Fact _hRscThrcrv75:    controller.getParameterFact(-1, "H_RSC_THRCRV_75")
-            property Fact _hRscThrcrv100:   controller.getParameterFact(-1, "H_RSC_THRCRV_100")
+            property Fact _hColMax:         controller.getParameterFact(-1, "H_COL_MAX")
+            property Fact _hColMid:         controller.getParameterFact(-1, "H_COL_MID")
+            property Fact _hColMin:         controller.getParameterFact(-1, "H_COL_MIN")
+            property Fact _hColYaw:         controller.getParameterFact(-1, "H_COL_YAW")
 
-            property Fact _hLandColMin:     controller.getParameterFact(-1, "H_LAND_COL_MIN")
+            property Fact _hRotorRpm:       controller.getParameterFact(-1, "H_ROTOR_RPM")
+            property Fact _hRotorCritical:  controller.getParameterFact(-1, "H_ROTOR_CRITICAL")
+            property Fact _hRotorRunup:     controller.getParameterFact(-1, "H_ROTOR_RUNUP")
+
+            property Fact _hThrottleIdle:   controller.getParameterFact(-1, "H_THROTTLE_IDLE")
+            property Fact _hThrottleRamp:   controller.getParameterFact(-1, "H_THROTTLE_RAMP")
+            property Fact _hThrottleP1:     controller.getParameterFact(-1, "H_THROTTLE_P1")
+            property Fact _hThrottleP2:     controller.getParameterFact(-1, "H_THROTTLE_P2")
+            property Fact _hThrottleP3:     controller.getParameterFact(-1, "H_THROTTLE_P3")
+            property Fact _hThrottleP4:     controller.getParameterFact(-1, "H_THROTTLE_P4")
+            property Fact _hThrottleP5:     controller.getParameterFact(-1, "H_THROTTLE_P5")
+
+            property Fact _hGovDroop:       controller.getParameterFact(-1, "H_GOV_DROOP")
+            property Fact _hGovTorque:      controller.getParameterFact(-1, "H_GOV_TORQUE")
+            property Fact _hGovTcgain:      controller.getParameterFact(-1, "H_GOV_TCGAIN")
+
             property Fact _imStabCol1:      controller.getParameterFact(-1, "IM_STAB_COL_1")
             property Fact _imStabCol2:      controller.getParameterFact(-1, "IM_STAB_COL_2")
             property Fact _imStabCol3:      controller.getParameterFact(-1, "IM_STAB_COL_3")
             property Fact _imStabCol4:      controller.getParameterFact(-1, "IM_STAB_COL_4")
 
+            property Fact _Ch6Opt:          controller.getParameterFact(-1, "TUNE")
+            property Fact _Ch7Opt:          controller.getParameterFact(-1, "CH7_OPT")
+            property Fact _Ch9Opt:          controller.getParameterFact(-1, "CH9_OPT")
+            property Fact _Ch10Opt:         controller.getParameterFact(-1, "CH10_OPT")
+            property Fact _Ch11Opt:         controller.getParameterFact(-1, "CH11_OPT")
+            property Fact _Ch12Opt:         controller.getParameterFact(-1, "CH12_OPT")
+
             QGCGroupBox {
-                title: qsTr("Servo Setup")
+                title: qsTr("Servo Group")
 
                 GridLayout {
                     columns: 6
 
-                    QGCLabel { text: qsTr("Servo") }
-                    QGCLabel { text: qsTr("Function") }
+                    QGCLabel { text: qsTr("Output |") }
+                    QGCLabel { text: qsTr(" Function") }
                     QGCLabel { text: qsTr("Min") }
                     QGCLabel { text: qsTr("Max") }
                     QGCLabel { text: qsTr("Trim") }
                     QGCLabel { text: qsTr("Reversed") }
 
-                    QGCLabel { text: qsTr("1") }
+                    QGCLabel { text: qsTr("Port1") }
                     FactComboBox {
                         fact:               controller.getParameterFact(-1, "SERVO1_FUNCTION")
                         indexModel:         false
@@ -103,7 +112,7 @@ SetupPage {
                         Layout.fillWidth:   true
                     }
 
-                    QGCLabel { text: qsTr("2") }
+                    QGCLabel { text: qsTr("Port2") }
                     FactComboBox {
                         fact:               controller.getParameterFact(-1, "SERVO2_FUNCTION")
                         indexModel:         false
@@ -126,7 +135,7 @@ SetupPage {
                         Layout.fillWidth:   true
                     }
 
-                    QGCLabel { text: qsTr("3") }
+                    QGCLabel { text: qsTr("Port3") }
                     FactComboBox {
                         fact:               controller.getParameterFact(-1, "SERVO3_FUNCTION")
                         indexModel:         false
@@ -149,7 +158,7 @@ SetupPage {
                         Layout.fillWidth:   true
                     }
 
-                    QGCLabel { text: qsTr("4") }
+                    QGCLabel { text: qsTr("Port4") }
                     FactComboBox {
                         fact:               controller.getParameterFact(-1, "SERVO4_FUNCTION")
                         indexModel:         false
@@ -171,29 +180,159 @@ SetupPage {
                         fact:               controller.getParameterFact(-1, "SERVO4_REVERSED")
                         Layout.fillWidth:   true
                     }
+
+                    QGCLabel { text: qsTr("Port5") }
+                    FactComboBox {
+                        fact:               controller.getParameterFact(-1, "SERVO5_FUNCTION")
+                        indexModel:         false
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO5_MIN")
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO5_MAX")
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO5_TRIM")
+                        Layout.fillWidth:   true
+                    }
+                    FactCheckBox {
+                        fact:               controller.getParameterFact(-1, "SERVO5_REVERSED")
+                        Layout.fillWidth:   true
+                    }
+
+                    QGCLabel { text: qsTr("Port6") }
+                    FactComboBox {
+                        fact:               controller.getParameterFact(-1, "SERVO6_FUNCTION")
+                        indexModel:         false
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO6_MIN")
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO6_MAX")
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO6_TRIM")
+                        Layout.fillWidth:   true
+                    }
+                    FactCheckBox {
+                        fact:               controller.getParameterFact(-1, "SERVO6_REVERSED")
+                        Layout.fillWidth:   true
+                    }
+
+                    QGCLabel { text: qsTr("Port7") }
+                    FactComboBox {
+                        fact:               controller.getParameterFact(-1, "SERVO7_FUNCTION")
+                        indexModel:         false
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO7_MIN")
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO7_MAX")
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO7_TRIM")
+                        Layout.fillWidth:   true
+                    }
+                    FactCheckBox {
+                        fact:               controller.getParameterFact(-1, "SERVO7_REVERSED")
+                        Layout.fillWidth:   true
+                    }
+
+                    QGCLabel { text: qsTr("Port8") }
+                    FactComboBox {
+                        fact:               controller.getParameterFact(-1, "SERVO8_FUNCTION")
+                        indexModel:         false
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO8_MIN")
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO8_MAX")
+                        Layout.fillWidth:   true
+                    }
+                    FactTextField {
+                        fact:               controller.getParameterFact(-1, "SERVO8_TRIM")
+                        Layout.fillWidth:   true
+                    }
+                    FactCheckBox {
+                        fact:               controller.getParameterFact(-1, "SERVO8_REVERSED")
+                        Layout.fillWidth:   true
+                    }
                 }
             }
 
             QGCGroupBox {
-                title: qsTr("Swash Setup")
+                title: qsTr("Channel Function Group")
 
                 GridLayout {
                     columns: 2
 
-                    QGCLabel { text: _hSvMan.shortDescription }
+                    QGCLabel { text: qsTr("RC Channel |") }
+                    QGCLabel { text: qsTr(" Function") }
+
+                    QGCLabel { text: _Ch6Opt.shortDescription }
                     FactComboBox {
-                        fact:       _hSvMan
+                        fact:       _Ch6Opt
                         indexModel: false
                     }
 
-                    QGCLabel { text: _hSv1Pos.shortDescription }
-                    FactTextField { fact: _hSv1Pos }
+                    QGCLabel { text: _Ch7Opt.shortDescription }
+                    FactComboBox {
+                        fact:       _Ch7Opt
+                        indexModel: false
+                    }
 
-                    QGCLabel { text: _hSv2Pos.shortDescription }
-                    FactTextField { fact: _hSv2Pos }
+                    QGCLabel { text: _Ch9Opt.shortDescription }
+                    FactComboBox {
+                        fact:       _Ch9Opt
+                        indexModel: false
+                    }
 
-                    QGCLabel { text: _hSv3Pos.shortDescription }
-                    FactTextField { fact: _hSv3Pos }
+                    QGCLabel { text: _Ch10Opt.shortDescription }
+                    FactComboBox {
+                        fact:       _Ch10Opt
+                        indexModel: false
+                    }
+
+                    QGCLabel { text: _Ch11Opt.shortDescription }
+                    FactComboBox {
+                        fact:       _Ch11Opt
+                        indexModel: false
+                    }
+
+                    QGCLabel { text: _Ch12Opt.shortDescription }
+                    FactComboBox {
+                        fact:       _Ch12Opt
+                        indexModel: false
+                    }
+                }
+            }
+
+            QGCGroupBox {
+                title: qsTr("Swashplate and Cyclic Group")
+
+                GridLayout {
+                    columns: 2
+
+                    QGCLabel { text: _hSwashSetup.shortDescription }
+                    FactComboBox {
+                        fact:       _hSwashSetup
+                        indexModel: false
+                    }
 
                     QGCLabel { text: _hSwashType.shortDescription }
                     FactComboBox {
@@ -201,20 +340,31 @@ SetupPage {
                         indexModel: false
                     }
 
-                    QGCLabel { text: _hColCtrlDir.shortDescription }
+                    QGCLabel { text: _hSwashCollDir.shortDescription }
                     FactComboBox {
-                        fact:       _hColCtrlDir
+                        fact:       _hSwashCollDir
                         indexModel: false
                     }
 
-                    QGCLabel { text: _hFlybarMode.shortDescription }
+                    QGCLabel { text: _hSwashLinear.shortDescription }
                     FactComboBox {
-                        fact:       _hFlybarMode
+                        fact:       _hSwashLinear
                         indexModel: false
                     }
 
-                    QGCLabel { text: _hColMax.shortDescription }
-                    FactTextField { fact: _hColMax }
+                    QGCLabel { text: _hCyclicDeg.shortDescription }
+                    FactTextField { fact: _hCyclicDeg }
+                }
+            }
+
+            QGCGroupBox {
+                title: qsTr("Collective Group")
+
+                GridLayout {
+                    columns: 2
+
+                    QGCLabel { text: qsTr("-- Collective Settings --") }
+                    QGCLabel { text: qsTr("Range: 1000-2000 pwm") }
 
                     QGCLabel { text: _hColMid.shortDescription }
                     FactTextField { fact: _hColMid }
@@ -222,63 +372,22 @@ SetupPage {
                     QGCLabel { text: _hColMin.shortDescription }
                     FactTextField { fact: _hColMin }
 
-                    QGCLabel { text: _hCycMax.shortDescription }
-                    FactTextField { fact: _hCycMax }
+                    QGCLabel { text: _hColMax.shortDescription }
+                    FactTextField { fact: _hColMax }
+
+                    QGCLabel { text: _hColYaw.shortDescription }
+                    FactTextField { fact: _hColYaw }
                 }
             }
 
             QGCGroupBox {
-                title: qsTr("Throttle Setup")
+                title: qsTr("Stabilize Collective Curve")
 
                 GridLayout {
                     columns: 2
 
-                    QGCLabel { text: _hRscMode.shortDescription }
-                    FactComboBox {
-                        fact:       _hRscMode
-                        indexModel: false
-                    }
-
-                    QGCLabel { text: _hRscCritical.shortDescription }
-                    FactTextField { fact: _hRscCritical }
-
-                    QGCLabel { text: _hRscIdle.shortDescription }
-                    FactTextField { fact: _hRscIdle }
-
-                    QGCLabel { text: _hRscRampTime.shortDescription }
-                    FactTextField { fact: _hRscRampTime }
-
-                    QGCLabel { text: _hRscRunupTime.shortDescription }
-                    FactTextField { fact: _hRscRunupTime }
-
-                    QGCLabel { text: _hRscSetpoint.shortDescription }
-                    FactTextField { fact: _hRscSetpoint }
-
-                    QGCLabel { text: _hRscThrcrv0.shortDescription }
-                    FactTextField { fact: _hRscThrcrv0 }
-
-                    QGCLabel { text: _hRscThrcrv25.shortDescription }
-                    FactTextField { fact: _hRscThrcrv25 }
-
-                    QGCLabel { text: _hRscThrcrv50.shortDescription }
-                    FactTextField { fact: _hRscThrcrv50 }
-
-                    QGCLabel { text: _hRscThrcrv75.shortDescription }
-                    FactTextField { fact: _hRscThrcrv75 }
-
-                    QGCLabel { text: _hRscThrcrv100.shortDescription }
-                    FactTextField { fact: _hRscThrcrv100 }
-                }
-            }
-
-            QGCGroupBox {
-                title: qsTr("Collective Curve Setup")
-
-                GridLayout {
-                    columns: 2
-
-                    QGCLabel { text: _hLandColMin.shortDescription }
-                    FactTextField { fact: _hLandColMin }
+                    QGCLabel { text: qsTr("Collective Postion |") }
+                    QGCLabel { text: qsTr(" Collective Output") }
 
                     QGCLabel { text: _imStabCol1.shortDescription }
                     FactTextField { fact: _imStabCol1 }
@@ -291,6 +400,67 @@ SetupPage {
 
                     QGCLabel { text: _imStabCol4.shortDescription }
                     FactTextField { fact: _imStabCol4 }
+                }
+            }
+
+            QGCGroupBox {
+                title: qsTr("Throttle Group")
+
+                GridLayout {
+                    columns: 2
+
+                    QGCLabel { text: _hThrottleIdle.shortDescription }
+                    FactTextField { fact: _hThrottleIdle }
+
+                    QGCLabel { text: _hThrottleRamp.shortDescription }
+                    FactTextField { fact: _hThrottleRamp }
+
+                    QGCLabel { text: qsTr("-- Throttle Curve --") }
+                    QGCLabel { text: qsTr("--------------------------------") }
+
+                    QGCLabel { text: _hThrottleP1.shortDescription }
+                    FactTextField { fact: _hThrottleP1 }
+
+                    QGCLabel { text: _hThrottleP2.shortDescription }
+                    FactTextField { fact: _hThrottleP2 }
+
+                    QGCLabel { text: _hThrottleP3.shortDescription }
+                    FactTextField { fact: _hThrottleP3 }
+
+                    QGCLabel { text: _hThrottleP4.shortDescription }
+                    FactTextField { fact: _hThrottleP4 }
+
+                    QGCLabel { text: _hThrottleP5.shortDescription }
+                    FactTextField { fact: _hThrottleP5 }
+                }
+            }
+
+            QGCGroupBox {
+                title: qsTr("Rotor and Governor Group")
+
+                GridLayout {
+                    columns: 2
+
+                    QGCLabel { text: _hRotorRpm.shortDescription }
+                    FactTextField { fact: _hRotorRpm }
+
+                    QGCLabel { text: _hRotorCritical.shortDescription }
+                    FactTextField { fact: _hRotorCritical }
+
+                    QGCLabel { text: _hRotorRunup.shortDescription }
+                    FactTextField { fact: _hRotorRunup }
+
+                    QGCLabel { text: qsTr("-- Governor Settings --") }
+                    QGCLabel { text: qsTr("--------------------------------") }
+
+                    QGCLabel { text: _hGovDroop.shortDescription }
+                    FactTextField { fact: _hGovDroop }
+
+                    QGCLabel { text: _hGovTorque.shortDescription }
+                    FactTextField { fact: _hGovTorque }
+
+                    QGCLabel { text: _hGovTcgain.shortDescription }
+                    FactTextField { fact: _hGovTcgain }
                 }
             }
         } // Flow
