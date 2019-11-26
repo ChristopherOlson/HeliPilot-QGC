@@ -226,7 +226,7 @@
 <field name="Units">cm/s/s</field>
 <field name="UnitText">centimeters per square second</field>
 </param>
-<param humanName="Throttle Failsafe Enable" name="ArduCopter:FS_THR_ENABLE" documentation="The throttle failsafe allows you to configure a software failsafe activated by a setting on the throttle input channel" user="Standard">
+<param humanName="Collective Failsafe Enable" name="ArduCopter:FS_THR_ENABLE" documentation="The collective failsafe allows you to configure a software failsafe activated by a setting on the collective input channel" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">Enabled always RTL</value>
@@ -236,7 +236,7 @@
 <value code="5">Enabled always SmartRTL or Land</value>
 </values>
 </param>
-<param humanName="Throttle Failsafe Value" name="ArduCopter:FS_THR_VALUE" documentation="The PWM level in microseconds on channel 3 below which throttle failsafe triggers" user="Standard">
+<param humanName="Collective Failsafe Value" name="ArduCopter:FS_THR_VALUE" documentation="The PWM level in microseconds on channel 3 below which collective failsafe triggers" user="Standard">
 <field name="Range">925 1100</field>
 <field name="Increment">1</field>
 <field name="Units">PWM</field>
