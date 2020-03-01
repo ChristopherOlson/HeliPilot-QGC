@@ -322,25 +322,12 @@ SetupPage {
                                 readonly property string _singleFirmwareLabel:   qsTr("Press Ok to upgrade your vehicle.")
                             }
 
-                            QGCLabel { text: qsTr("Flight Stack"); visible: QGroundControl.apmFirmwareSupported }
+                            QGCLabel { text: qsTr("For HeliPilot choose Advanced And Custom Firmware"); visible: QGroundControl.apmFirmwareSupported }
 
                             Column {
 
                                 Component.onCompleted: {
                                     if(!QGroundControl.apmFirmwareSupported) {
-                                        _defaultFirmwareFact.rawValue = _defaultFimwareTypePX4
-                                        firmwareVersionChanged(firmwareBuildTypeList)
-                                    }
-                                }
-
-                                QGCRadioButton {
-                                    id:             px4FlightStackRadio
-                                    text:           qsTr("PX4 Pro ")
-                                    textBold:       _defaultFirmwareIsPX4
-                                    checked:        _defaultFirmwareIsPX4
-                                    visible:        !_singleFirmwareMode && !px4Flow && QGroundControl.apmFirmwareSupported
-
-                                    onClicked: {
                                         _defaultFirmwareFact.rawValue = _defaultFimwareTypePX4
                                         firmwareVersionChanged(firmwareBuildTypeList)
                                     }
