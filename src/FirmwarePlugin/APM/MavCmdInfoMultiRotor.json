@@ -38,6 +38,11 @@
             "id":           31,
             "comment":      "MAV_CMD_NAV_LOITER_TO_ALT",
             "paramRemove":  "4"
+        },
+        {
+            "id":           82,
+            "comment":      "MAV_CMD_NAV_SPLINE_WAYPOINT",
+            "paramRemove":  "1"
         }
     ]
 }

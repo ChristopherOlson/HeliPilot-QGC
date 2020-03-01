@@ -34,7 +34,7 @@ QString APMRadioComponent::name(void) const
 
 QString APMRadioComponent::description(void) const
 {
-    return tr("The Radio Component is used to setup which channels on your RC Transmitter you will use for each vehicle control such as Roll, Pitch, Yaw and Throttle. "
+    return tr("The Radio Component is used to setup which channels on your RC Transmitter you will use for each vehicle control such as Roll, Pitch, Yaw and Collective. "
               "It also allows you to assign switches and dials to the various flight modes. "
               "Prior to flight you must also calibrate the extents for all of your channels.");
 }

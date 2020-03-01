@@ -362,7 +362,8 @@ VisualMissionItem* MissionController::_insertSimpleMissionItemWorker(QGeoCoordin
     SimpleMissionItem * newItem = new SimpleMissionItem(_controllerVehicle, _flyView, false /* forLoad */, this);
     newItem->setSequenceNumber(sequenceNumber);
     newItem->setCoordinate(coordinate);
-    newItem->setCommand(command);
+//    newItem->setCommand(command);
+    newItem->setCommand(MAV_CMD_NAV_SPLINE_WAYPOINT);
     _initVisualItem(newItem);
 
     if (newItem->specifiesAltitude()) {

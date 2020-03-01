@@ -1,8 +1,8 @@
-# Onboard parameters for Vehicle 1
+# Onboard parameters for aircraft
 #
-# Stack: ArduPilot
-# Vehicle: Multi-Rotor
-# Version: 3.6.8 
+# Stack: HeliPilot
+# Vehicle: Helicopter
+# Version: 20.02.01 
 # Git Revision: 2f40967
 #
 # Vehicle-Id Component-Id Name Value Type

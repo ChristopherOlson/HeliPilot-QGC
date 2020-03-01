@@ -7164,7 +7164,7 @@ Blue Robotics thrusters are lubricated by water and are not designed to be run i
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="72"/>
-        <source>Transition VTOL to multi-rotor flight.</source>
+        <source>Transition VTOL to helicopter flight.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7236,7 +7236,7 @@ Blue Robotics thrusters are lubricated by water and are not designed to be run i
     </message>
     <message>
         <location filename="../src/Joystick/Joystick.cc" line="44"/>
-        <source>VTOL: Multi-Rotor</source>
+        <source>VTOL: Helicopter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15083,7 +15083,7 @@ Confirm change?</source>
     </message>
     <message>
         <location filename="../src/ui/toolbar/VTOLModeIndicator.qml" line="26"/>
-        <source>VTOL: Multi-Rotor</source>
+        <source>VTOL: Helicopter</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -15119,7 +15119,7 @@ Confirm change?</source>
     </message>
     <message>
         <location filename="../src/Vehicle/Vehicle.cc" line="610"/>
-        <source>Multi-Rotor</source>
+        <source>Helicopter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

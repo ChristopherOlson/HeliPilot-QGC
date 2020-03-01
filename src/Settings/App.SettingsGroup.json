@@ -3,7 +3,7 @@
     "name":             "offlineEditingFirmwareType",
     "shortDescription": "Offline editing firmware type",
     "type":             "uint32",
-    "enumStrings":      "ArduPilot,PX4 Pro,Mavlink Generic",
+    "enumStrings":      "HeliPilot,PX4 Pro,Mavlink Generic",
     "enumValues":       "3,12,0",
     "defaultValue":     12
 },
@@ -11,7 +11,7 @@
     "name":             "offlineEditingVehicleType",
     "shortDescription": "Offline editing vehicle type",
     "type":             "uint32",
-    "enumStrings":      "Fixed Wing,Multi-Rotor,VTOL,Rover,Sub",
+    "enumStrings":      "Fixed Wing,Helicopter,VTOL,Rover,Sub",
     "enumValues":       "1,2,20,10,12",
     "defaultValue":     2
 },
@@ -28,7 +28,7 @@
 {
     "name":             "offlineEditingHoverSpeed",
     "shortDescription": "Offline editing hover speed",
-    "longDescription":  "This value defines the default cruising speed for multi-rotor vehicles for use in calculating mission statistics. It does not modify the flight speed for a specific flight plan.",
+    "longDescription":  "This value defines the default cruising speed for helicopters for use in calculating mission statistics. It does not modify the flight speed for a specific flight plan.",
     "type":             "double",
     "defaultValue":     5.0,
     "min":              1.0,
@@ -38,7 +38,7 @@
 {
     "name":             "offlineEditingAscentSpeed",
     "shortDescription": "Offline editing ascent speed",
-    "longDescription":  "This value defines the ascent speed for multi-rotor vehicles for use in calculating mission duration.",
+    "longDescription":  "This value defines the ascent speed for helicopters for use in calculating mission duration.",
     "type":             "double",
     "defaultValue":     3.0,
     "min":              0.1,
@@ -48,7 +48,7 @@
 {
     "name":             "offlineEditingDescentSpeed",
     "shortDescription": "Offline editing descent speed",
-    "longDescription":  "This value defines the cruising speed for multi-rotor vehicles for use in calculating mission duration.",
+    "longDescription":  "This value defines the cruising speed for helicopters for use in calculating mission duration.",
     "type":             "double",
     "defaultValue":     1.0,
     "min":              0.1,
@@ -222,7 +222,7 @@
 },
 {
     "name":                 "apmStartMavlinkStreams",
-    "shortDescription":     "Request start of MAVLink telemetry streams (ArduPilot only)",
+    "shortDescription":     "Request start of MAVLink telemetry streams (HeliPilot only)",
     "type":                 "bool",
     "defaultValue":         true,
     "qgcRebootRequired":    true

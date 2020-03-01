@@ -249,7 +249,7 @@ SetupPage {
                                 Layout.fillWidth:   true
                             }
 
-                            QGCLabel { text: qsTr("Throttle failsafe:") }
+                            QGCLabel { text: qsTr("Collective failsafe:") }
                             QGCComboBox {
                                 model:              [qsTr("Disabled"), qsTr("Always RTL"),
                                     qsTr("Continue with Mission in Auto Mode"), qsTr("Always Land")]

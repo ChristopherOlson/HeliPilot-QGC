@@ -162,7 +162,7 @@ Rectangle {
                 }
 
                 QGCLabel {
-                    text:               qsTr("Hover speed")
+                    text:               qsTr("Cruise speed")
                     visible:            _showHoverSpeed
                     Layout.fillWidth:   true
                 }

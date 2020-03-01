@@ -52,13 +52,13 @@ SetupPage {
                 skipButton:     skipButton
                 onChannelCountChanged:              updateChannelCount()
                 onFunctionMappingChangedAPMReboot:  mainWindow.showMessageDialog(qsTr("Reboot required"), qsTr("Your stick mappings have changed, you must reboot the vehicle for correct operation."))
-                onThrottleReversedCalFailure:       mainWindow.showMessageDialog(qsTr("Throttle channel reversed"), qsTr("Calibration failed. The throttle channel on your transmitter is reversed. You must correct this on your transmitter in order to complete calibration."))
+                onThrottleReversedCalFailure:       mainWindow.showMessageDialog(qsTr("Collective channel reversed"), qsTr("Calibration failed. The collective channel on your transmitter is reversed. You must correct this on your transmitter in order to complete calibration."))
             }
 
             Component {
                 id: copyTrimsDialogComponent
                 QGCViewMessage {
-                    message: qsTr("Center your sticks and move throttle all the way down, then press Ok to copy trims. After pressing Ok, reset the trims on your radio back to zero.")
+                    message: qsTr("Center your sticks and move collective all the way down, then press Ok to copy trims. After pressing Ok, reset the trims on your radio back to zero.")
                     function accept() {
                         hideDialog()
                         controller.copyTrims()
@@ -299,7 +299,7 @@ SetupPage {
                         QGCLabel {
                             id:     throttleLabel
                             width:  defaultTextWidth * 10
-                            text:   qsTr("Throttle")
+                            text:   qsTr("Collective")
                         }
 
                         Loader {

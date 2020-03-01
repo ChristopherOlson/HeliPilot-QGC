@@ -35,7 +35,7 @@ Item {
         }
 
         VehicleSummaryRow {
-            labelText: qsTr("Throttle")
+            labelText: qsTr("Collective")
             valueText: mapThrottleFact.value == 0 ? qsTr("Setup required") : qsTr("Channel %1").arg(mapThrottleFact.valueString)
         }
     }

@@ -600,7 +600,7 @@ QString Vehicle::firmwareTypeString() const
     if (px4Firmware()) {
         return QStringLiteral("PX4 Pro");
     } else if (apmFirmware()) {
-        return QStringLiteral("ArduPilot");
+        return QStringLiteral("HeliPilot");
     } else {
         return tr("MAVLink Generic");
     }
@@ -611,7 +611,7 @@ QString Vehicle::vehicleTypeString() const
     if (fixedWing()) {
         return tr("Fixed Wing");
     } else if (multiRotor()) {
-        return tr("Multi-Rotor");
+        return tr("Helicopterr");
     } else if (vtol()) {
         return tr("VTOL");
     } else if (rover()) {
