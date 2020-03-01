@@ -318,11 +318,14 @@ SetupPage {
                                 text:       (_singleFirmwareMode || !QGroundControl.apmFirmwareSupported) ? _singleFirmwareLabel : (px4Flow ? _px4FlowLabel : _pixhawkLabel)
 
                                 readonly property string _px4FlowLabel:          qsTr("Detected PX4 Flow board. The firmware you use on the PX4 Flow must match the AutoPilot firmware type you are using on the vehicle:")
-                                readonly property string _pixhawkLabel:          qsTr("Detected Pixhawk board. You can select from the following flight stacks:")
+                                readonly property string _pixhawkLabel:          qsTr("Detected PX4-based controller. You can select from the following flight stacks:")
                                 readonly property string _singleFirmwareLabel:   qsTr("Press Ok to upgrade your vehicle.")
                             }
 
-                            QGCLabel { text: qsTr("For HeliPilot choose Advanced And Custom Firmware"); visible: QGroundControl.apmFirmwareSupported }
+                            QGCLabel {
+                                width:      parent.width
+                                wrapMode:   Text.WordWrap
+                                text: qsTr("The firmware loader supports ArduPilot for multirotors and hobby helicopters. HeliPilot for commercial helicopters. Check the Advanced box and choose Custom firmware file for HeliPilot firmware which can be downloaded from https://github.com/MidwestAire/HeliPilot/releases/"); visible: QGroundControl.apmFirmwareSupported }
 
                             Column {
 
