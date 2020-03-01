@@ -356,30 +356,35 @@ SetupPage {
                     FactComboBox {
                         fact:       _Ch6Opt
                         indexModel: false
+                        Layout.fillWidth:   true
                     }
 
                     QGCLabel { text: _Ch9Opt.shortDescription }
                     FactComboBox {
                         fact:       _Ch9Opt
                         indexModel: false
+                        Layout.fillWidth:   true
                     }
 
                     QGCLabel { text: _Ch10Opt.shortDescription }
                     FactComboBox {
                         fact:       _Ch10Opt
                         indexModel: false
+                        Layout.fillWidth:   true
                     }
 
                     QGCLabel { text: _Ch11Opt.shortDescription }
                     FactComboBox {
                         fact:       _Ch11Opt
                         indexModel: false
+                        Layout.fillWidth:   true
                     }
 
                     QGCLabel { text: _Ch12Opt.shortDescription }
                     FactComboBox {
                         fact:       _Ch12Opt
                         indexModel: false
+                        Layout.fillWidth:   true
                     }
                 }
             }
@@ -394,18 +399,21 @@ SetupPage {
                     FactComboBox {
                         fact:       _hSwashSetup
                         indexModel: false
+                        Layout.fillWidth:   true
                     }
 
                     QGCLabel { text: _hSwashType.shortDescription }
                     FactComboBox {
                         fact:       _hSwashType
                         indexModel: false
+                        Layout.fillWidth:   true
                     }
 
                     QGCLabel { text: _hSwashCollDir.shortDescription }
                     FactComboBox {
                         fact:       _hSwashCollDir
                         indexModel: false
+                        Layout.fillWidth:   true
                     }
 
                     QGCLabel { text: qsTr("<b>__________ Four-Servo Only</b>") }
@@ -415,6 +423,7 @@ SetupPage {
                     FactComboBox {
                         fact:       _hSwashLinear
                         indexModel: false
+                        Layout.fillWidth:   true
                     }
 
                     QGCLabel { text: qsTr("<b>___________ Cyclic Settings</b>") }
