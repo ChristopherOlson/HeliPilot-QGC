@@ -78,7 +78,7 @@ SetupPage {
 
                             QGCLabel {
                                 id:                 modeChannelLabel
-                                anchors.baseline:   modeChannelCombo.baseline
+                                anchors.verticalCenter:   modeChannelCombo.verticalCenter
                                 text:               qsTr("Flight mode channel:")
                             }
 
@@ -209,7 +209,7 @@ SetupPage {
                                 property Fact nullFact: Fact { }
 
                                 QGCLabel {
-                                    anchors.baseline:   optCombo.baseline
+                                    anchors.verticalCenter:   optCombo.verticalCenter
                                     text:               qsTr("Channel option %1 :").arg(index)
                                     color:              controller.channelOptionEnabled[modelData] ? "yellow" : qgcPal.text
                                 }

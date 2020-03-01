@@ -261,7 +261,7 @@ SetupPage {
                             id:                 gimbalOutLabel
                             anchors.margins:    _margins
                             anchors.left:       parent.left
-                            anchors.baseline:   gimbalOutCombo.baseline
+                            anchors.verticalCenter:   gimbalOutCombo.verticalCenter
                             text:               qsTr("Output channel:")
                         }
 
@@ -282,7 +282,7 @@ SetupPage {
                             id:                 mountRcInLabel
                             anchors.margins:    _margins
                             anchors.left:       parent.left
-                            anchors.baseline:   mountRcInCombo.baseline
+                            anchors.verticalCenter:   mountRcInCombo.verticalCenter
                             text:               qsTr("Input channel:")
                             enabled:            directionEnabled
                         }
@@ -302,7 +302,7 @@ SetupPage {
                             id:                 mountAngLabel
                             anchors.margins:    _margins
                             anchors.left:       parent.left
-                            anchors.baseline:   mountAngMinField.baseline
+                            anchors.verticalCenter:   mountAngMinField.verticalCenter
                             text:               qsTr("Gimbal angle limits:")
                             enabled:            directionEnabled
                         }
@@ -311,7 +311,7 @@ SetupPage {
                             id:                 mountAngMinLabel
                             anchors.margins:    _margins
                             anchors.left:       mountAngLabel.right
-                            anchors.baseline:   mountAngMinField.baseline
+                            anchors.verticalCenter:   mountAngMinField.verticalCenter
                             text:               qsTr("min")
                             enabled:            directionEnabled
                         }
@@ -329,7 +329,7 @@ SetupPage {
                             id:                 mountAngMaxLabel
                             anchors.margins:    _margins
                             anchors.left:       mountAngMinField.right
-                            anchors.baseline:   mountAngMinField.baseline
+                            anchors.verticalCenter:   mountAngMinField.verticalCenter
                             text:               qsTr("max")
                             enabled:            directionEnabled
                         }
@@ -347,7 +347,7 @@ SetupPage {
                             id:                 servoPWMLabel
                             anchors.margins:    _margins
                             anchors.left:       parent.left
-                            anchors.baseline:   servoPWMMinField.baseline
+                            anchors.verticalCenter:   servoPWMMinField.verticalCenter
                             text:               qsTr("Servo PWM limits:")
                             enabled:            directionEnabled
                         }
@@ -355,7 +355,7 @@ SetupPage {
                         QGCLabel {
                             id:                 servoPWMMinLabel
                             anchors.left:       mountAngMinLabel.left
-                            anchors.baseline:   servoPWMMinField.baseline
+                            anchors.verticalCenter:   servoPWMMinField.verticalCenter
                             text:               qsTr("min")
                             enabled:            directionEnabled
                         }
@@ -374,7 +374,7 @@ SetupPage {
                             id:                 servoPWMMaxLabel
                             anchors.margins:    _margins
                             anchors.left:       servoPWMMinField.right
-                            anchors.baseline:   servoPWMMinField.baseline
+                            anchors.verticalCenter:   servoPWMMinField.verticalCenter
                             text:               qsTr("max")
                             enabled:            directionEnabled
                         }
@@ -419,7 +419,7 @@ SetupPage {
                             id:                 gimbalTypeLabel
                             anchors.margins:    _margins
                             anchors.left:       parent.left
-                            anchors.baseline:   gimbalTypeCombo.baseline
+                            anchors.verticalCenter:   gimbalTypeCombo.verticalCenter
                             text:               qsTr("Type:")
                         }
 
@@ -449,7 +449,7 @@ SetupPage {
                             id:                 gimbalModeLabel
                             anchors.margins:    _margins
                             anchors.left:       parent.left
-                            anchors.baseline:   gimbalModeCombo.baseline
+                            anchors.verticalCenter:   gimbalModeCombo.verticalCenter
                             text:               qsTr("Default Mode:")
                         }
 

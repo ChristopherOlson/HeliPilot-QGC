@@ -495,7 +495,7 @@ SetupPage {
                         QGCLabel {
                             id:                 fenceRadiusLabel
                             anchors.left:       circleGeo.left
-                            anchors.baseline:   fenceRadiusField.baseline
+                            anchors.verticalCenter:   fenceRadiusField.verticalCenter
                             text:               qsTr("Max radius:")
                         }
 
@@ -511,7 +511,7 @@ SetupPage {
                         QGCLabel {
                             id:                 fenceAltMaxLabel
                             anchors.left:       circleGeo.left
-                            anchors.baseline:   fenceAltMaxField.baseline
+                            anchors.verticalCenter:   fenceAltMaxField.verticalCenter
                             text:               qsTr("Max altitude:")
                         }
 
@@ -602,7 +602,7 @@ SetupPage {
                             id:                 rltAltField
                             anchors.leftMargin: _margins
                             anchors.left:       returnAltRadio.right
-                            anchors.baseline:   returnAltRadio.baseline
+                            anchors.verticalCenter:   returnAltRadio.verticalCenter
                             fact:               _rtlAltFact
                             showUnits:          true
                             enabled:            returnAltRadio.checked
@@ -611,7 +611,7 @@ SetupPage {
                         QGCCheckBox {
                             id:                 homeLoiterCheckbox
                             anchors.left:       returnAtCurrentRadio.left
-                            anchors.baseline:   landDelayField.baseline
+                            anchors.verticalCenter:   landDelayField.verticalCenter
                             checked:            _rtlLoitTimeFact.value > 0
                             text:               qsTr("Loiter above Home for:")
 
@@ -631,7 +631,7 @@ SetupPage {
                         QGCRadioButton {
                             id:                 landRadio
                             anchors.left:       returnAtCurrentRadio.left
-                            anchors.baseline:   landSpeedField.baseline
+                            anchors.verticalCenter:   landSpeedField.verticalCenter
                             text:               qsTr("Land with descent speed:")
                             checked:            _rtlAltFinalFact.value == 0
 
@@ -651,7 +651,7 @@ SetupPage {
                         QGCRadioButton {
                             id:                 finalLoiterRadio
                             anchors.left:       returnAtCurrentRadio.left
-                            anchors.baseline:   rltAltFinalField.baseline
+                            anchors.verticalCenter:   rltAltFinalField.verticalCenter
                             text:               qsTr("Final loiter altitude:")
 
                             onClicked: _rtlAltFinalFact.value = _rtlAltFact.value
@@ -718,7 +718,7 @@ SetupPage {
                             id:                 rltAltField
                             anchors.leftMargin: _margins
                             anchors.left:       returnAltRadio.right
-                            anchors.baseline:   returnAltRadio.baseline
+                            anchors.verticalCenter:   returnAltRadio.verticalCenter
                             fact:               _rtlAltFact
                             showUnits:          true
                             enabled:            returnAltRadio.checked

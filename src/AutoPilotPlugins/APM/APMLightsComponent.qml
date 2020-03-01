@@ -180,7 +180,7 @@ SetupPage {
                             id:                 lights1Label
                             anchors.margins:    _margins
                             anchors.right:      lights1Combo.left
-                            anchors.baseline:   lights1Combo.baseline
+                            anchors.verticalCenter:   lights1Combo.verticalCenter
                             text:               qsTr("Lights 1:")
                         }
 
@@ -201,7 +201,7 @@ SetupPage {
                             id:                 lights2Label
                             anchors.margins:    _margins
                             anchors.right:      lights2Combo.left
-                            anchors.baseline:   lights2Combo.baseline
+                            anchors.verticalCenter:   lights2Combo.verticalCenter
                             text:               qsTr("Lights 2:")
                         }
 
@@ -222,7 +222,7 @@ SetupPage {
                             id:                 lightsStepLabel
                             anchors.margins:    _margins
                             anchors.left:       parent.left
-                            anchors.baseline:   lightsStepCombo.baseline
+                            anchors.verticalCenter:   lightsStepCombo.verticalCenter
                             text:               qsTr("Brightness Steps:")
                         }
 

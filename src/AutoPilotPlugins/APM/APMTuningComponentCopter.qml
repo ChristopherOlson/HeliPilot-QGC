@@ -346,7 +346,7 @@ SetupPage {
                                     spacing:    _margins
 
                                     QGCLabel {
-                                        anchors.baseline:   autoTuneChannelCombo.baseline
+                                        anchors.verticalCenter:   autoTuneChannelCombo.verticalCenter
                                         text:               qsTr("Channel for AutoTune switch:")
                                     }
 
@@ -400,7 +400,7 @@ SetupPage {
                                     property Fact nullFact: Fact { }
 
                                     QGCLabel {
-                                        anchors.baseline:   optCombo.baseline
+                                        anchors.verticalCenter:   optCombo.verticalCenter
                                         text:               qsTr("Chan 6 Tuning Option:")
                                         //color:            controller.channelOptionEnabled[modelData] ? "yellow" : qgcPal.text
                                     }
@@ -418,7 +418,7 @@ SetupPage {
                                     property Fact nullFact: Fact { }
 
                                     QGCLabel {
-                                        anchors.baseline:   tuneMinField.baseline
+                                        anchors.verticalCenter:   tuneMinField.verticalCenter
                                         text:               qsTr("Min:")
                                         //color:            controller.channelOptionEnabled[modelData] ? "yellow" : qgcPal.text
                                     }
@@ -430,7 +430,7 @@ SetupPage {
                                     }
 
                                     QGCLabel {
-                                        anchors.baseline:   tuneMaxField.baseline
+                                        anchors.verticalCenter:   tuneMaxField.verticalCenter
                                         text:               qsTr("Max:")
                                         //color:            controller.channelOptionEnabled[modelData] ? "yellow" : qgcPal.text
                                     }
