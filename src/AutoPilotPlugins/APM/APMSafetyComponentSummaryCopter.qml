@@ -43,7 +43,7 @@ Item {
         }
 
         VehicleSummaryRow {
-            labelText: qsTr("Throttle failsafe:")
+            labelText: qsTr("Collective failsafe:")
             valueText: _failsafeThrEnable.enumStringValue
         }
 
