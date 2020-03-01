@@ -41,14 +41,12 @@ SetupPage {
             property Fact _motSpinArm:          controller.getParameterFact(-1, "MOT_SPIN_ARM")
             property Fact _motSpinMin:          controller.getParameterFact(-1, "MOT_SPIN_MIN")
 
-            property Fact _ch7Opt:  controller.getParameterFact(-1, "r.RC7_OPTION")
-            property Fact _ch8Opt:  controller.getParameterFact(-1, "r.RC8_OPTION")
-            property Fact _ch9Opt:  controller.getParameterFact(-1, "r.RC9_OPTION")
-            property Fact _ch10Opt: controller.getParameterFact(-1, "r.RC10_OPTION")
-            property Fact _ch11Opt: controller.getParameterFact(-1, "r.RC11_OPTION")
-            property Fact _ch12Opt: controller.getParameterFact(-1, "r.RC12_OPTION")
+            property Fact _ch9Opt:  controller.getParameterFact(-1, "CH9_OPT")
+            property Fact _ch10Opt: controller.getParameterFact(-1, "CH10_OPT")
+            property Fact _ch11Opt: controller.getParameterFact(-1, "CH11_OPT")
+            property Fact _ch12Opt: controller.getParameterFact(-1, "CH12_OPT")
 
-            readonly property int   _firstOptionChannel:    7
+            readonly property int   _firstOptionChannel:    9
             readonly property int   _lastOptionChannel:     12
 
             property Fact   _autoTuneAxes:                  controller.getParameterFact(-1, "AUTOTUNE_AXES")
@@ -112,8 +110,6 @@ SetupPage {
                 }
             }
 
-            Connections { target: _ch7Opt; onValueChanged: calcAutoTuneChannel() }
-            Connections { target: _ch8Opt; onValueChanged: calcAutoTuneChannel() }
             Connections { target: _ch9Opt; onValueChanged: calcAutoTuneChannel() }
             Connections { target: _ch10Opt; onValueChanged: calcAutoTuneChannel() }
             Connections { target: _ch11Opt; onValueChanged: calcAutoTuneChannel() }
@@ -405,13 +401,13 @@ SetupPage {
 
                                     QGCLabel {
                                         anchors.baseline:   optCombo.baseline
-                                        text:               qsTr("RC Channel 6 Option (Tuning):")
+                                        text:               qsTr("Chan 6 Tuning Option:")
                                         //color:            controller.channelOptionEnabled[modelData] ? "yellow" : qgcPal.text
                                     }
 
                                     FactComboBox {
                                         id:         optCombo
-                                        width:      ScreenTools.defaultFontPixelWidth * 15
+                                        width:      ScreenTools.defaultFontPixelWidth * 20
                                         fact:       controller.getParameterFact(-1, "TUNE")
                                         indexModel: false
                                     }
@@ -430,7 +426,7 @@ SetupPage {
                                     FactTextField {
                                         id:                 tuneMinField
                                         validator:          DoubleValidator {bottom: 0; top: 32767;}
-                                        fact:               controller.getParameterFact(-1, "r.TUNE_MAX")
+                                        fact:               controller.getParameterFact(-1, "TUNE_HIGH")
                                     }
 
                                     QGCLabel {
@@ -442,7 +438,7 @@ SetupPage {
                                     FactTextField {
                                         id:                 tuneMaxField
                                         validator:          DoubleValidator {bottom: 0; top: 32767;}
-                                        fact:               controller.getParameterFact(-1, "r.TUNE_MIN")
+                                        fact:               controller.getParameterFact(-1, "TUNE_LOW")
                                     }
                                 }
                             } // Column - Channel 6 Tuning option
