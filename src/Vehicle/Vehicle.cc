@@ -611,7 +611,7 @@ QString Vehicle::vehicleTypeString() const
     if (fixedWing()) {
         return tr("Fixed Wing");
     } else if (multiRotor()) {
-        return tr("Helicopterr");
+        return tr("Helicopter");
     } else if (vtol()) {
         return tr("VTOL");
     } else if (rover()) {
