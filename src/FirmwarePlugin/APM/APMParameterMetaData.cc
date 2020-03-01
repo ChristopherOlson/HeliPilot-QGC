@@ -616,7 +616,7 @@ void APMParameterMetaData::getParameterMetaDataVersionInfo(const QString& metaDa
     minorVersion = -1;
 
     // Meta data version is hacked in for now based on file name
-    QRegExp regExp(".*\\.(\\d)\\.(\\d)\\.xml$");
+    QRegExp regExp(".*\\.(\\d+)\\.(\\d)\\.xml$");
     if (regExp.exactMatch(metaDataFile) && regExp.captureCount() == 2) {
         majorVersion = regExp.cap(2).toInt();
         minorVersion = 0;
