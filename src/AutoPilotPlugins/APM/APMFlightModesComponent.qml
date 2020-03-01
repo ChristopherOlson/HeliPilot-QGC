@@ -217,7 +217,7 @@ SetupPage {
                                 FactComboBox {
                                     id:         optCombo
                                     width:      ScreenTools.defaultFontPixelWidth * 15
-                                    fact:       controller.getParameterFact(-1, "r.RC" + index + "_OPTION")
+                                    fact:       controller.getParameterFact(-1, "CH" + index + "_OPT")
                                     indexModel: false
                                 }
                             }
