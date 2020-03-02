@@ -124,7 +124,7 @@
 },
 {
     "name":             "throttlePct",
-    "shortDescription": "Throttle %",
+    "shortDescription": "Torque",
     "type":             "uint16",
     "units":            "%"
 }
