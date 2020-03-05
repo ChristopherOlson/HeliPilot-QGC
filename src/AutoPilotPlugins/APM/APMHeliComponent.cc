@@ -23,7 +23,7 @@ QString APMHeliComponent::name(void) const
 
 QString APMHeliComponent::description(void) const
 {
-    return tr("use only for helicopters flying HeliPilot v20 or v21");
+    return tr("use only for helicopters flying HeliPilot v19 or higher");
 }
 
 QString APMHeliComponent::iconResource(void) const

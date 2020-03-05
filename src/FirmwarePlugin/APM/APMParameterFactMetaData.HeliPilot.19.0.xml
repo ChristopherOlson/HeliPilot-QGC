@@ -6,16 +6,6 @@
 <param humanName="Eeprom format version number" name="ArduCopter:SYSID_SW_MREV" documentation="This value is incremented when changes are made to the eeprom format" user="Advanced">
 <field name="ReadOnly">True</field>
 </param>
-<param humanName="Software Type" name="ArduCopter:SYSID_SW_TYPE" documentation="This is used by the ground station to recognise the software type (eg ArduPlane vs ArduCopter)" user="Advanced">
-<field name="ReadOnly">True</field>
-<values>
-<value code="0">ArduPlane</value>
-<value code="4">AntennaTracker</value>
-<value code="10">Copter</value>
-<value code="20">Rover</value>
-<value code="40">ArduSub</value>
-</values>
-</param>
 <param humanName="MAVLink system ID of this vehicle" name="ArduCopter:SYSID_THISMAV" documentation="Allows setting an individual MAVLink system id for this vehicle to distinguish it from others on the same network" user="Advanced">
 <field name="Range">1 255</field>
 </param>
@@ -65,8 +55,8 @@
 <value code="4">Yaw</value>
 </values>
 </param>
-<param humanName="RTL Altitude" name="ArduCopter:RTL_ALT" documentation="The minimum relative altitude the model will move to before Returning to Launch.  Set to zero to return at current altitude." user="Standard">
-<field name="Range">0 8000</field>
+<param humanName="RTL Altitude" name="ArduCopter:RTL_ALT" documentation="The minimum alt above home the vehicle will climb to before returning.  If the vehicle is flying higher than this value it will return at its current altitude." user="Standard">
+<field name="Range">200 8000</field>
 <field name="Increment">1</field>
 <field name="Units">cm</field>
 <field name="UnitText">centimeters</field>
@@ -226,7 +216,7 @@
 <field name="Units">cm/s/s</field>
 <field name="UnitText">centimeters per square second</field>
 </param>
-<param humanName="Collective Failsafe Enable" name="ArduCopter:FS_THR_ENABLE" documentation="The collective failsafe allows you to configure a software failsafe activated by a setting on the collective input channel" user="Standard">
+<param humanName="Throttle Failsafe Enable" name="ArduCopter:FS_THR_ENABLE" documentation="The throttle failsafe allows you to configure a software failsafe activated by a setting on the throttle input channel" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">Enabled always RTL</value>
@@ -236,7 +226,7 @@
 <value code="5">Enabled always SmartRTL or Land</value>
 </values>
 </param>
-<param humanName="Collective Failsafe Value" name="ArduCopter:FS_THR_VALUE" documentation="The PWM level in microseconds on channel 3 below which collective failsafe triggers" user="Standard">
+<param humanName="Throttle Failsafe Value" name="ArduCopter:FS_THR_VALUE" documentation="The PWM level in microseconds on channel 3 below which throttle failsafe triggers" user="Standard">
 <field name="Range">925 1100</field>
 <field name="Increment">1</field>
 <field name="Units">PWM</field>
@@ -435,7 +425,7 @@
 <value code=" 9">Disabled</value>
 </values>
 </param>
-<param humanName="Channel 6" name="ArduCopter:TUNE" documentation="Controls which parameters (normally PID gains) are being tuned with transmitter's channel 6 knob" user="Standard">
+<param humanName="Channel 6 Tuning" name="ArduCopter:TUNE" documentation="Controls which parameters (normally PID gains) are being tuned with transmitter's channel 6 knob" user="Standard">
 <values>
 <value code="0">None</value>
 <value code="1">Stab Roll/Pitch kP</value>
@@ -493,7 +483,7 @@
 </values>
 <field name="RebootRequired">True</field>
 </param>
-<param humanName="Channel 7" name="ArduCopter:CH7_OPT" documentation="Select which function is performed when CH7 is above 1800 pwm" user="Standard">
+<param humanName="Channel 7 option" name="ArduCopter:CH7_OPT" documentation="Select which function is performed when CH7 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -533,12 +523,12 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">HeliGovernor</value>
+<value code=" 43">Governor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
 </param>
-<param humanName="Channel 8" name="ArduCopter:CH8_OPT" documentation="Select which function is performed when CH8 is above 1800 pwm" user="Standard">
+<param humanName="Channel 8 option" name="ArduCopter:CH8_OPT" documentation="Select which function is performed when CH8 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -578,12 +568,12 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">HeliGovernor</value>
+<value code=" 43">Governor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
 </param>
-<param humanName="Channel 9" name="ArduCopter:CH9_OPT" documentation="Select which function is performed when CH9 is above 1800 pwm" user="Standard">
+<param humanName="Channel 9 option" name="ArduCopter:CH9_OPT" documentation="Select which function is performed when CH9 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -623,12 +613,12 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">HeliGovernor</value>
+<value code=" 43">Governor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
 </param>
-<param humanName="Channel 10" name="ArduCopter:CH10_OPT" documentation="Select which function is performed when CH10 is above 1800 pwm" user="Standard">
+<param humanName="Channel 10 option" name="ArduCopter:CH10_OPT" documentation="Select which function is performed when CH10 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -668,12 +658,12 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">HeliGovernor</value>
+<value code=" 43">Governor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
 </param>
-<param humanName="Channel 11" name="ArduCopter:CH11_OPT" documentation="Select which function is performed when CH11 is above 1800 pwm" user="Standard">
+<param humanName="Channel 11 option" name="ArduCopter:CH11_OPT" documentation="Select which function is performed when CH11 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -713,12 +703,12 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">HeliGovernor</value>
+<value code=" 43">Governor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
 </param>
-<param humanName="Channel 12" name="ArduCopter:CH12_OPT" documentation="Select which function is performed when CH12 is above 1800 pwm" user="Standard">
+<param humanName="Channel 12 option" name="ArduCopter:CH12_OPT" documentation="Select which function is performed when CH12 is above 1800 pwm" user="Standard">
 <values>
 <value code="0">Do Nothing</value>
 <value code=" 2">Flip</value>
@@ -758,7 +748,7 @@
 <value code=" 40">Object Avoidance</value>
 <value code=" 41">ArmDisarm</value>
 <value code=" 42">SmartRTL</value>
-<value code=" 43">HeliGovernor</value>
+<value code=" 43">Governor</value>
 <value code=" 44">Winch Enable</value>
 <value code=" 45">WinchControl</value>
 </values>
@@ -814,7 +804,7 @@
 <param humanName="Acro Roll and Pitch P gain" name="ArduCopter:ACRO_RP_P" documentation="Converts pilot roll and pitch into a desired rate of rotation in ACRO and SPORT mode.  Higher values mean faster rate of rotation." user="Standard">
 <field name="Range">1 10</field>
 </param>
-<param humanName="Acro Yaw P gain" name="ArduCopter:ACRO_YAW_P" documentation="Converts pilot yaw input into a desired rate of rotation in ACRO, Stabilize and SPORT modes.  Higher values mean faster rate of rotation." user="Standard">
+<param humanName="Acro Yaw P gain" name="ArduCopter:ACRO_YAW_P" documentation="Converts pilot yaw input into a desired rate of rotation.  Higher values mean faster rate of rotation." user="Standard">
 <field name="Range">1 10</field>
 </param>
 <param humanName="Acro Balance Roll" name="ArduCopter:ACRO_BAL_ROLL" documentation="rate at which roll angle returns to level in acro and sport mode.  A higher value causes the vehicle to return to level faster." user="Advanced">
@@ -900,7 +890,7 @@
 </values>
 </param>
 <param humanName="Development options" name="ArduCopter:DEV_OPTIONS" documentation="Bitmask of developer options. The meanings of the bit fields in this parameter may vary at any time. Developers should check the source code for current meaning" user="Advanced">
-<field name="Bitmask">0:ADSBMavlinkProcessing</field>
+<field name="Bitmask">0:ADSBMavlinkProcessing,1:DevOptionVFR_HUDRelativeAlt</field>
 </param>
 <param humanName="Acro Yaw Expo" name="ArduCopter:ACRO_Y_EXPO" documentation="Acro yaw expo to allow faster rotation when stick at edges" user="Advanced">
 <field name="Range">-0.5 1.0</field>
@@ -934,9 +924,7 @@
 <value code=" 7">Tri</value>
 <value code=" 8">SingleCopter</value>
 <value code=" 9">CoaxCopter</value>
-<value code=" 11">Heli_Dual</value>
 <value code=" 12">DodecaHexa</value>
-<value code=" 13">HeliQuad</value>
 </values>
 <field name="RebootRequired">True</field>
 </param>
@@ -1262,6 +1250,13 @@
 <field name="Increment">0.1 </field>
 <field name="Units">V</field>
 <field name="UnitText">volt</field>
+</param>
+<param humanName="Arming with Rudder enable/disable" name="ARMING_RUDDER" documentation="Allow arm/disarm by rudder input. When enabled arming can be done with right rudder, disarming with left rudder. Rudder arming only works in manual throttle modes with throttle at zero +- deadzone (RCx_DZ)" user="Advanced">
+<values>
+<value code="0">Disabled</value>
+<value code="1">ArmingOnly</value>
+<value code="2">ArmOrDisarm</value>
+</values>
 </param>
 </parameters>
 <parameters name="ATC_">
@@ -1650,7 +1645,9 @@
 <value code="6">Bebop</value>
 <value code="7">SMBus-Maxell</value>
 <value code="8">UAVCAN-BatteryInfo</value>
+<value code="9">BLHeli ESC</value>
 </values>
+<field name="RebootRequired">True</field>
 </param>
 <param humanName="Battery Voltage sensing pin" name="BATT2_VOLT_PIN" documentation="Setting this to 0 ~ 13 will enable battery voltage sensing on pins A0 ~ A13. On the PX4-v1 it should be set to 100. On the Pixhawk, Pixracer and NAVIO boards it should be set to 2, Pixhawk2 Power2 is 13." user="Standard">
 <values>
@@ -1661,6 +1658,7 @@
 <value code=" 13">Pixhawk2_PM2</value>
 <value code=" 100">PX4-v1</value>
 </values>
+<field name="RebootRequired">True</field>
 </param>
 <param humanName="Battery Current sensing pin" name="BATT2_CURR_PIN" documentation="Setting this to 0 ~ 13 will enable battery current sensing on pins A0 ~ A13. On the PX4-v1 it should be set to 101. On the Pixhawk, Pixracer and NAVIO boards it should be set to 3, Pixhawk2 Power2 is 14." user="Standard">
 <values>
@@ -1671,6 +1669,7 @@
 <value code=" 14">Pixhawk2_PM2</value>
 <value code=" 101">PX4-v1</value>
 </values>
+<field name="RebootRequired">True</field>
 </param>
 <param humanName="Voltage Multiplier" name="BATT2_VOLT_MULT" documentation="Used to convert the voltage of the voltage sensing pin (BATT2_VOLT_PIN) to the actual battery's voltage (pin_voltage * VOLT_MULT). For the 3DR Power brick on APM2 or Pixhawk, this should be set to 10.1. For the Pixhawk with the 3DR 4in1 ESC this should be 12.02. For the PX using the PX4IO power supply this should be set to 1." user="Advanced">
 </param>
@@ -1757,7 +1756,9 @@
 <value code="6">Bebop</value>
 <value code="7">SMBus-Maxell</value>
 <value code="8">UAVCAN-BatteryInfo</value>
+<value code="9">BLHeli ESC</value>
 </values>
+<field name="RebootRequired">True</field>
 </param>
 <param humanName="Battery Voltage sensing pin" name="BATT_VOLT_PIN" documentation="Setting this to 0 ~ 13 will enable battery voltage sensing on pins A0 ~ A13. On the PX4-v1 it should be set to 100. On the Pixhawk, Pixracer and NAVIO boards it should be set to 2, Pixhawk2 Power2 is 13." user="Standard">
 <values>
@@ -1768,6 +1769,7 @@
 <value code=" 13">Pixhawk2_PM2</value>
 <value code=" 100">PX4-v1</value>
 </values>
+<field name="RebootRequired">True</field>
 </param>
 <param humanName="Battery Current sensing pin" name="BATT_CURR_PIN" documentation="Setting this to 0 ~ 13 will enable battery current sensing on pins A0 ~ A13. On the PX4-v1 it should be set to 101. On the Pixhawk, Pixracer and NAVIO boards it should be set to 3, Pixhawk2 Power2 is 14." user="Standard">
 <values>
@@ -1778,6 +1780,7 @@
 <value code=" 14">Pixhawk2_PM2</value>
 <value code=" 101">PX4-v1</value>
 </values>
+<field name="RebootRequired">True</field>
 </param>
 <param humanName="Voltage Multiplier" name="BATT_VOLT_MULT" documentation="Used to convert the voltage of the voltage sensing pin (BATT_VOLT_PIN) to the actual battery's voltage (pin_voltage * VOLT_MULT). For the 3DR Power brick on APM2 or Pixhawk, this should be set to 10.1. For the Pixhawk with the 3DR 4in1 ESC this should be 12.02. For the PX using the PX4IO power supply this should be set to 1." user="Advanced">
 </param>
@@ -1980,6 +1983,10 @@
 <param humanName="Options for safety button behavior" name="BRD_SAFETYOPTION" documentation="This controls the activation of the safety button. It allows you to control if the safety button can be used for safety enable and/or disable, and whether the button is only active when disarmed" user="Standard">
 <field name="Bitmask">0:ActiveForSafetyEnable,1:ActiveForSafetyDisable,2:ActiveWhenArmed</field>
 </param>
+<param humanName="microSD slowdown" name="BRD_SD_SLOWDOWN" documentation="This is a scaling factor to slow down microSD operation. It can be used on flight board and microSD card combinations where full speed is not reliable. For normal full speed operation a value of 0 should be used." user="Advanced">
+<field name="Range">0 32</field>
+<field name="Increment">1</field>
+</param>
 </parameters>
 <parameters name="BRD_RADIO">
 <param humanName="Set type of direct attached radio" name="BRD_RADIO_TYPE" documentation="This enables support for direct attached radio receivers" user="Advanced">
@@ -2066,6 +2073,11 @@
 </param>
 <param humanName="Auto-bind level" name="BRD_RADIO_ABLVL" documentation="This sets the minimum RSSI of an auto-bind packet for it to be accepted. This should be set so that auto-bind will only happen at short range to minimise the change of an auto-bind happening accidentially" user="Advanced">
 <field name="Range">0 31</field>
+</param>
+</parameters>
+<parameters name="BRD_RTC">
+<param humanName="Allowed sources of RTC time" name="BRD_RTC_TYPES" documentation="Specifies which sources of UTC time will be accepted" user="Advanced">
+<field name="Bitmask">0:GPS,1:MAVLINK_SYSTEM_TIME,2:HW</field>
 </param>
 </parameters>
 <parameters name="BTN_">
@@ -2200,6 +2212,7 @@
 <value code="54">PX4 AUX5</value>
 <value code="55">PX4 AUX6</value>
 </values>
+<field name="RebootRequired">True</field>
 </param>
 <param humanName="Camera feedback pin polarity" name="CAM_FEEDBACK_POL" documentation="Polarity for feedback pin. If this is 1 then the feedback pin should go high on trigger. If set to 0 then it should go low" user="Standard">
 <values>
@@ -2784,6 +2797,13 @@
 <field name="Increment">1</field>
 <field name="Units">%</field>
 <field name="UnitText">percent</field>
+</param>
+<param humanName="Automatically check orientation" name="COMPASS_AUTO_ROT" documentation="When enabled this will automatically check the orientation of compasses on successful completion of compass calibration. If set to 2 then external compasses will have their orientation automatically corrected.">
+<values>
+<value code="0">Disabled</value>
+<value code="1">CheckOnly</value>
+<value code="2">CheckAndFix</value>
+</values>
 </param>
 </parameters>
 <parameters name="COMPASS_PMOT">
@@ -3397,6 +3417,7 @@
 <values>
 <value code="0">Report Only</value>
 <value code="1">RTL or Land</value>
+<value code=" 2">Always land</value>
 </values>
 </param>
 <param humanName="Fence Maximum Altitude" name="FENCE_ALT_MAX" documentation="Maximum altitude allowed before geofence triggers" user="Standard">
@@ -3542,6 +3563,12 @@
 <param humanName="Follow position error P gain" name="FOLL_POS_P" documentation="Follow position error P gain.  Converts the difference between desired vertical speed and actual speed into a desired acceleration that is passed to the throttle acceleration controller" user="Standard">
 <field name="Range">0.01 1.00</field>
 <field name="Increment">0.01</field>
+</param>
+<param humanName="Follow altitude type" name="FOLL_ALT_TYPE" documentation="Follow altitude type" user="Standard">
+<values>
+<value code="0">absolute</value>
+<value code=" 1"> relative</value>
+</values>
 </param>
 </parameters>
 <parameters name="GND_">
@@ -3851,30 +3878,11 @@
 </param>
 </parameters>
 <parameters name="H_">
-<param humanName="Swashplate Type" name="H_SWASH_TYPE" documentation="H3_120/H3_140 plates have SERVO1 left side, SERVO2 right side, SERVO3 (elevator) in rear. HR3_120/HR3_140 have SERVO1 right side, SERVO2 left side, SERVO3 (elevator) in front. For HR3 style swashplate use H3_120/H3_140 and reverse servo and collective directions as necessary. For all H3_90 swashplates use H4_90 and don't use servo output for the missing servo. For H4-90 SERVOS1 and 2 are left/right respectively, SERVOS3 and 4 are rear/front respectively. For H4-45 SERVOS1 and 2 are LF/RF, SERVOS3 and 4 are LR/RR. For four-servo swashplates fourth servo output must be enabled on a SERVO output labeled Cyclic4" user="Standard">
-<values>
-<value code=" 1">H1 Non-CCPM</value>
-<value code=" 2">H3_140 CCPM</value>
-<value code=" 3">H3_120 CCPM</value>
-<value code=" 4">H4_90 CCPM</value>
-<value code=" 5">H4_45 CCPM</value>
-</values>
-</param>
-<param humanName="Collective-Yaw Mixing" name="H_COL_YAW" documentation="Feed-forward compensation to automatically add rudder input when collective pitch is increased. Can be positive or negative depending on mechanics." user="Advanced">
-<field name="Range">-10 10</field>
-<field name="Increment">0.1</field>
-</param>
-<param humanName="Collective Direction" name="H_SWASH_COLL_DIR" documentation="Direction collective moves to increase blade pitch. 0 for Normal, 1 for Reversed" user="Standard">
-<values>
-<value code="0">Normal</value>
-<value code="1">Reversed</value>
-</values>
-</param>
-<param humanName="Swash Linear" name="H_SWASH_LINEAR" documentation="This setting is primarily for four-servo swashplates to prevent servo binding. It linearizes the swashplate servo's mechanical output to account for nonlinear output due to arm rotation. This requires a specific mechanical setup procedure to work properly. The servo arm must be centered on the mechanical throw at the servo trim position and the servo trim position kept as close to 1500 pwm as possible. Leveling the swashplate can only be done through the swash links. After the swashplate is level the pitch links should be adjusted at a value of 1500 pwm to achieve zero blade pitch" user="Standard">
-<values>
-<value code="0">Disabled</value>
-<value code="1">Enabled</value>
-</values>
+<param humanName="Collective Zero Thrust" name="H_COL_MID" documentation="Swash servo position corresponding to zero collective pitch (or zero thrust for asymmetric blades)" user="Standard">
+<field name="Range">1000 2000</field>
+<field name="Increment">1</field>
+<field name="Units">PWM</field>
+<field name="UnitText">PWM in microseconds</field>
 </param>
 <param humanName="Collective Minimum" name="H_COL_MIN" documentation="Minimum blade pitch. Must be set for proper autorotation performance at best autorotation airspeed" user="Standard">
 <field name="Range">1000 2000</field>
@@ -3888,17 +3896,50 @@
 <field name="Units">PWM</field>
 <field name="UnitText">PWM in microseconds</field>
 </param>
-<param humanName="Collective Zero Thrust" name="H_COL_MID" documentation="Swash servo position corresponding to zero collective pitch (or zero thrust for asymmetric blades)" user="Standard">
-<field name="Range">1000 2000</field>
-<field name="Increment">1</field>
-<field name="Units">PWM</field>
-<field name="UnitText">PWM in microseconds</field>
-</param>
-<param humanName="Collective-Yaw Mixing" name="H_COL_YAW" documentation="Feed-forward compensation to automatically add rudder input when collective pitch is changed. Can be positive or negative depending on mechanics." user="Standard">
+<param humanName="Collective-Yaw Mixing" name="H_COL_YAW" documentation="Feed-forward compensation to automatically add anti-torque input when collective pitch is increased or decreased. Can be positive or negative depending on mechanics." user="Standard">
 <field name="Range">-10 10</field>
+<field name="Increment">0.1</field>
+</param>
+<param humanName="Cyclic Range" name="H_CYCLIC_DEG" documentation="Cyclic tilt range of the swashplate. Normally set this to whatever it takes to get 7-8 degrees of cyclic pitch" user="Standard">
+<field name="Range">0 45</field>
 <field name="Increment">1</field>
 </param>
-<param humanName="Swashplate Setup" name="H_SWASH_SETUP" documentation="Manual servo override for swashplate setup only" user="Standard">
+<param humanName="Governor Droop Response" name="H_GOV_DROOP" documentation="Governor droop response under load, normal settings of 0-100%. Higher value is quicker response but may cause surging. Setting to zero disables the governor. Adjust this to be as aggressive as possible without getting surging or Rrpm over-run when the governor engages. Setting over 100% is allowable for some two-stage turbine engines to provide scheduling of the Ng for proper torque response of the N2 spool" user="Standard">
+<field name="Range">0 150</field>
+<field name="Increment">1</field>
+<field name="Units">percent</field>
+<field name="UnitText">percent</field>
+</param>
+<param humanName="Governor Torque Range" name="H_GOV_TORQUE" documentation="Adjusts the maximum engine torque output in the governor response to speed droop of the main rotor when the governor is active. If speed sensor fails or torque output exceeds the torque range setting, the governor will disengage and return to throttle curve. Recommended torque range setting is 100-120 rpm." user="Standard">
+<field name="Range">50 200</field>
+<field name="Increment">10</field>
+<field name="Units">rpm</field>
+<field name="UnitText">RPM</field>
+</param>
+<param humanName="Governor Throttle Curve Gain" name="H_GOV_TCGAIN" documentation="Percentage of throttle curve in governor output. This provides a type of feed-forward response to sudden loading or unloading of the rotor system. If Rrpm drops below Rrpm Low Warning during over-pitching increase the throttle curve gain. If governor fails to drop Rrpm by 2.5%, or auto-disengages the governor, at Flight Idle (pitch feathered) reduce the throttle curve gain" user="Standard">
+<field name="Range">50 100</field>
+<field name="Increment">1</field>
+<field name="Units">percent</field>
+<field name="UnitText">percent</field>
+</param>
+<param humanName="Critical Rotor Speed" name="H_ROTOR_CRITICAL" documentation="Percentage of normal rotor speed where entry to autorotation becomes dangerous. For helicopters with rotor speed sensor should be set to a percentage of the rotor rpm setting. Even if governor is not used when a speed sensor is installed, set the rotor rpm to normal headspeed then set critical to a percentage of normal rpm (usually 90%). This can be considered the bottom of the warning arc for autorotation. For helicopters without rotor speed sensor should be set to 50%. Lack of a speed sensor results in using an estimated rotor speed instead of actual and is only marginally accurate." user="Standard">
+<field name="Range">0 90</field>
+<field name="Increment">1</field>
+<field name="Units">%Rrpm</field>
+<field name="UnitText">% Rotor rpm</field>
+</param>
+<param humanName="Headspeed RPM" name="H_ROTOR_RPM" documentation="Set to the rotor rpm your helicopter runs in flight. When a speed sensor is installed the rotor governor maintains this speed. Also used for autorotation and for runup. For governor operation this should be set 10 rpm higher than the actual desired headspeed to allow for governor droop" user="Standard">
+<field name="Range">800 2500</field>
+<field name="Increment">10</field>
+<field name="Units">Rrpm</field>
+<field name="UnitText">Rotor rpm</field>
+</param>
+<param humanName="Rotor Runup Time" name="H_ROTOR_RUNUP" documentation="Time in seconds for the main rotor to reach full speed after throttle hold is released. Set to zero to use rotor speed sensor for runup. If not using rotor speed sensor the rotor runup must be at least 1 second longer than the throttle ramp time.!WARNING! - when measured rotor speed is not used to determine runup, setting rotor runup time to an excessively high value can cause rapid power recovery from throttle hold, resulting in blade lag and potentially destroying the helicopter. With all electric helicopters it is recommended to set rotor runup one second longer than throttle ramp time." user="Standard">
+<field name="Range">0 60</field>
+<field name="Units">seconds</field>
+<field name="UnitText">seconds</field>
+</param>
+<param humanName="Swash Setup" name="H_SWASH_SETUP" documentation="Manual servo override for swash setup only" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">Passthrough</value>
@@ -3907,161 +3948,95 @@
 <value code="4">Min collective</value>
 </values>
 </param>
-<param humanName="Throttle Ramp Time" name="H_THROTTLE_RAMP" documentation="Time in seconds for throttle to ramp from ground idle to AutoThrottle when manual throttle(s) are suddenly advanced from fuel cutoff to current throttle curve position. This setting is used primarily by piston and turbine engines to smoothly engage the transmission clutch. However, it can also be used for electric ESC's that do not have an internal soft-start. If used with electric ESC with soft-start it is recommended to set this to 1 second so as to not confuse the ESC's soft-start function" user="Standard">
-<field name="Range">0 60</field>
-<field name="Units">seconds</field>
-<field name="UnitText">seconds</field>
-</param>
-<param humanName="Rotor Runup Time" name="H_ROTOR_RUNUP" documentation="Time in seconds for the main rotor to reach full speed on AutoThrottle. SET TO ZERO TO USE ROTOR SPEED SENSOR FOR RUNUP (recommended). If not using rotor speed sensor the rotor runup must be at least 1 second longer than the throttle ramp time.!WARNING! - when measured rotor speed is not used to determine runup, setting rotor runup time to an excessively high value can cause rapid power recovery from manual throttle, resulting in blade lag and potential rotor imbalance. With all electric helicopters it is recommended to set rotor runup one second longer than throttle ramp time. Piston and turbine helicopters must use a rotor speed sensor with this setting set to zero" user="Standard">
-<field name="Range">0 60</field>
-<field name="Units">seconds</field>
-<field name="UnitText">seconds</field>
-</param>
-<param humanName="Headspeed RPM" name="H_ROTOR_RPM" documentation="Set to the rotor rpm your helicopter runs in flight. When a speed sensor is installed the rotor governor maintains this speed. Also used for autorotation and for runup" user="Standard">
-<field name="Range">500 2500</field>
-<field name="Increment">10</field>
-<field name="Units">Rrpm</field>
-<field name="UnitText">RPM</field>
-</param>
-<param humanName="Critical Rotor Speed" name="H_ROTOR_CRITICAL" documentation="Percentage of normal rotor speed where entry to autorotation becomes dangerous. For helicopters with rotor speed sensor should be set to a percentage of the rotor rpm setting. Even if governor is not used when a speed sensor is installed, set the rotor rpm to normal headspeed then set critical to a percentage of normal rpm (usually 90%). This can be considered the bottom of the warning arc for autorotation. For helicopters without rotor speed sensor leave at 90%. Lack of a speed sensor results in using an estimated rotor speed instead of actual and is only marginally accurate" user="Standard">
-<field name="Range">50 95</field>
-<field name="Increment">1</field>
-<field name="Units">%Rrpm</field>
-<field name="UnitText">percent</field>
-</param>
-<param humanName="Engine Ground Idle" name="H_THROTTLE_IDLE" documentation="For piston or turbine engines in single-engine helicopters only. Use of manual throttle to set engine idle speed is recommended instead of using this setting. For twin-engine helicopters always set the engine ground idle speeds with the RC radio manual throttles as using this setting will not result in the same idle speed for both engines. At ground idle the engines should idle with clutch disengaged, and for engine start. !!WARNING!! Using this setting requires disarm of the flight control to shut down engines on either single or twin-engine helicopters. Using this setting for electric helicopters could result in motor start when the flight control system is armed. This is a legacy setting, it will be deprecated in future versions of HeliPilot" user="Standard">
-<field name="Range">0 55</field>
+<param humanName="Engine Ground Idle" name="H_THROTTLE_IDLE" documentation="FOR COMBUSTION ENGINES. Sets the engine ground idle throttle percentage with clutch disengaged, and for engine start. This must be set to zero for electric helicopters under most situations. If the ESC has an autorotation window this can be set to keep the autorotation window open in the ESC. Consult the operating manual for your ESC to set it properly for this purpose" user="Standard">
+<field name="Range">0 50</field>
 <field name="Increment">1</field>
 <field name="Units">%throttle</field>
-<field name="UnitText">percent</field>
-</param>
-<param humanName="Cyclic Swash Tilt" name="H_CYCLIC_DEG" documentation="Cyclic tilt angle of the swashplate. Normally set this to whatever it takes to get 7-8 degrees of cyclic pitch" user="Standard">
-<field name="Range">0 45</field>
-<field name="Increment">1</field>
-<field name="Units">degrees</field>
-<field name="UnitText">degrees</field>
+<field name="UnitText">% Throttle</field>
 </param>
 <param humanName="Engine #1 P1" name="H_THROTTLE_P1" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate all the way to its maximum negative or low collective pitch position. This setting, combined with THROTTLE_P2 corresponds to engine flight idle, rotor turning at rated speed with no engine load" user="Standard">
 <field name="Range">0 100</field>
 <field name="Increment">1</field>
 <field name="Units">%throttle</field>
-<field name="UnitText">percent</field>
-</param>
-<param humanName="Engine #2 P1" name="H_THROTTLE2_P1" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate all the way to its maximum negative or low collective pitch position. This setting, combined with THROTTLE_P2 corresponds to engine flight idle, rotor turning at rated speed with no engine load" user="Standard">
-<field name="Range">0 100</field>
-<field name="Increment">1</field>
-<field name="Units">%throttle</field>
-<field name="UnitText">percent</field>
+<field name="UnitText">% Throttle</field>
 </param>
 <param humanName="Engine #1 P2" name="H_THROTTLE_P2" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 25% of it's full collective travel.This may or may not correspond to 25% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 25% of 12 degrees is 3 degrees, so this setting would correspond to +1 degree of positive pitch. This setting, combined with THROTTLE_P1 corresponds to engine flight idle, rotors turning at rated speed with no engine load" user="Standard">
 <field name="Range">0 100</field>
 <field name="Increment">1</field>
 <field name="Units">%throttle</field>
-<field name="UnitText">percent</field>
-</param>
-<param humanName="Engine #2 P2" name="H_THROTTLE2_P2" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 25% of it's full collective travel for engine #2.This may or may not correspond to 25% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 25% of 12 degrees is 3 degrees, so this setting would correspond to +1 degree of positive pitch. This setting, combined with THROTTLE2_P1 corresponds to engine flight idle, rotors turning at rated speed with no engine load" user="Standard">
-<field name="Range">0 100</field>
-<field name="Increment">1</field>
-<field name="Units">%throttle</field>
-<field name="UnitText">percent</field>
+<field name="UnitText">% Throttle</field>
 </param>
 <param humanName="Engine #1 P3" name="H_THROTTLE_P3" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 50% of it's full collective travel.This may or may not correspond to 50% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 50% of 12 degrees is 6 degrees, so this setting would correspond to +4 degrees of positive pitch" user="Standard">
 <field name="Range">0 100</field>
 <field name="Increment">1</field>
 <field name="Units">%throttle</field>
-<field name="UnitText">percent</field>
-</param>
-<param humanName="Engine #2 P3" name="H_THROTTLE2_P3" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 50% of it's full collective travel for engine #2.This may or may not correspond to 50% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 50% of 12 degrees is 6 degrees, so this setting would correspond to +4 degrees of positive pitch" user="Standard">
-<field name="Range">0 100</field>
-<field name="Increment">1</field>
-<field name="Units">%throttle</field>
-<field name="UnitText">percent</field>
+<field name="UnitText">% Throttle</field>
 </param>
 <param humanName="Engine #1 P4" name="H_THROTTLE_P4" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 75% of it's full collective travel.This may or may not correspond to 75% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 75% of 12 degrees is 9 degrees, so this setting would correspond to +7 degrees of positive pitch" user="Standard">
 <field name="Range">0 100</field>
 <field name="Increment">1</field>
 <field name="Units">%throttle</field>
-<field name="UnitText">percent</field>
-</param>
-<param humanName="Engine #2 P4" name="H_THROTTLE2_P4" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 75% of it's full collective travel for engine #2.This may or may not correspond to 75% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 75% of 12 degrees is 9 degrees, so this setting would correspond to +7 degrees of positive pitch" user="Standard">
-<field name="Range">0 100</field>
-<field name="Increment">1</field>
-<field name="Units">%throttle</field>
-<field name="UnitText">percent</field>
+<field name="UnitText">% Throttle</field>
 </param>
 <param humanName="Engine #1 P5" name="H_THROTTLE_P5" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 100% of it's full collective travel, which is maximum positive pitch" user="Standard">
 <field name="Range">0 100</field>
 <field name="Increment">1</field>
 <field name="Units">%throttle</field>
-<field name="UnitText">percent</field>
+<field name="UnitText">% Throttle</field>
 </param>
-<param humanName="Engine #2 P5" name="H_THROTTLE2_P5" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 100% of it's full collective travel for engine #2, which is maximum positive pitch" user="Standard">
-<field name="Range">0 100</field>
-<field name="Increment">1</field>
-<field name="Units">%throttle</field>
-<field name="UnitText">percent</field>
+<param humanName="Throttle Ramp Time" name="H_THROTTLE_RAMP" documentation="Time in seconds for throttle to ramp from ground idle to low idle power when throttle hold is released. This setting is used primarily by piston and turbine engines to smoothly engage the transmission clutch. However, it can also be used for electric ESC's that do not have an internal soft-start. If used with electric ESC with soft-start it is recommended to set this to 1 second so as to not confuse the ESC's soft-start function" user="Standard">
+<field name="Range">0 60</field>
+<field name="Units">seconds</field>
+<field name="UnitText">seconds</field>
 </param>
-<param humanName="Engine #1 Droop Response" name="H_GOV_DROOP" documentation="AutoThrottle governor droop response under load, normal settings of 0-100%. Higher value is quicker response but may cause surging. Adjust this to be as aggressive as possible without getting surging or Rrpm over-run when the governor engages. For twin-engine helicopters this will normally be tuned in static hover, adjusting the droop response higher on each engine until governor hunting is noted, then reduce the setting to where the governor is stable" user="Standard">
-<field name="Range">10 50</field>
-<field name="Increment">1</field>
-<field name="Units">percent</field>
-<field name="UnitText">percent</field>
-</param>
-<param humanName="Engine #2 Droop Response" name="H_GOV2_DROOP" documentation="AutoThrottle governor droop response under load for engine #2, normal settings of 10-100%. Higher value is quicker response but may cause surging. Adjust this to be as aggressive as possible without getting surging or Rrpm over-run when the governor engages. For twin-engine helicopters this will normally be tuned in static hover, adjusting the droop response higher on each engine until governor hunting is noted, then reduce the setting to where the governor is stable" user="Standard">
-<field name="Range">10 50</field>
-<field name="Increment">1</field>
-<field name="Units">percent</field>
-<field name="UnitText">percent</field>
-</param>
-<param humanName="Governor Torque Limiter" name="H_GOV_TORQUE" documentation="Adjusts the engine's torque rise percent on AutoThrottle during governor ramp-up to full engage speed. The torque rise will determine how fast the rotor speed will ramp up when the governor is turned on. 30% torque rise is a good starting setting to adjust the governor ramp-in for piston and turbine engines" user="Standard">
-<field name="Range">10 60</field>
-<field name="Increment">10</field>
-<field name="Units">percent</field>
-<field name="UnitText">percent</field>
-</param>
-<param humanName="Engine #1 TCGain" name="H_GOV_TCGAIN" documentation="Percentage of throttle curve in governor output. This provides a feed-forward response to sudden loading or unloading of the rotor system. If Rrpm drops below Rrpm Low Warning during full collective climb increase the throttle curve gain" user="Standard">
-<field name="Range">0 100</field>
-<field name="Increment">1</field>
-<field name="Units">percent</field>
-<field name="UnitText">percent</field>
-</param>
-<param humanName="Engine #2 TCGain" name="H_GOV2_TCGAIN" documentation="Percentage of throttle curve in governor output for engine #2. This provides a feed-forward response to sudden loading or unloading of the rotor system. If Rrpm drops below Rrpm Low Warning during full collective climb increase the throttle curve gain" user="Standard">
-<field name="Range">0 100</field>
-<field name="Increment">1</field>
-<field name="Units">percent</field>
-<field name="UnitText">percent</field>
-</param>
-<param humanName="Number of Engines" name="H_NUM_ENGINES" documentation="Set number of active throttle controls for either single-engine or twin-engine helicopters. If twin-engine is selected RC7 input is used for engine #2 throttle control. RC8 input is used for engine #1 throttle control on both single and twin-engine helicopters. One of the SERVO outputs must be set to AutoThrottle2 to enable the throttle servo output for the second engine" user="Standard">
+</parameters>
+<parameters name="H_SWASH">
+<param humanName="Swashplate Type" name="H_SWASH_TYPE" documentation="H3_120/H3_140 plates have SERVO1 left side, SERVO2 right side, SERVO3 (elevator) in rear. HR3_120/HR3_140 have SERVO1 right side, SERVO2 left side, SERVO3 (elevator) in front. For HR3 style swashplate use H3_120/H3_140 and reverse servo and collective directions as necessary. For all H3_90 swashplates use H4_90 and don't use servo output for the missing servo. For H4-90 SERVOS1 and 2 are left/right respectively, SERVOS3 and 4 are rear/front respectively. For H4-45 SERVOS1 and 2 are LF/RF, SERVOS3 and 4 are LR/RR. For four-servo swashplates fourth servo output must be enabled on Port5 with SERVO output labeled Cyclic4 " user="Standard">
 <values>
-<value code="1">Single Engine</value>
-<value code="2">Twin Engine</value>
+<value code="1">H1 non-CPPM</value>
+<value code="2">H3_140</value>
+<value code="3">H3_120</value>
+<value code="4">H4_90</value>
+<value code="5">H4_45</value>
+</values>
+</param>
+<param humanName="Collective Control Direction" name="H_SWASH_COLL_DIR" documentation="Direction collective moves to increase blade pitch. 0 for Normal, 1 for Reversed" user="Standard">
+<values>
+<value code="0">Normal</value>
+<value code="1">Reversed</value>
+</values>
+</param>
+<param humanName="Linearize swashplate servo mechanical throw" name="H_SWASH_LINEAR" documentation="This setting is primarily for four-servo swashplates to prevent servo binding. It linearizes the swashplate servo's mechanical output to account for nonlinear output due to arm rotation.  This requires a specific mechanical setup procedure to work properly.  The servo arm must be centered on the mechanical throw at the servo trim position and the servo trim position kept as close to 1500 pwm as possible. Leveling the swashplate can only be done through the swash links. After the swashplate is level the pitch links should be adjusted at a value of 1500 pwm to achieve zero blade pitch" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
 </values>
 </param>
 </parameters>
 <parameters name="IM_">
-<param humanName="Stick At Bottom" name="IM_STAB_COL_1" documentation="Collective pitch percentage at 0% collective stick travel. If the setup has a significant amount of negative pitch, and the pilot desires to not use the negative pitch in Stabilize then set this higher than 0%" user="Standard">
-<field name="Range">0 30</field>
+<param humanName="Stick At Bottom" name="IM_STAB_COL_1" documentation="Helicopter's minimum collective pitch setting at zero throttle input in Stabilize mode" user="Standard">
+<field name="Range">0 500</field>
 <field name="Increment">1</field>
-<field name="Units">percent</field>
-<field name="UnitText">percent</field>
+<field name="Units">% x 10</field>
+<field name="UnitText">decipercent</field>
 </param>
-<param humanName="Stick at 40%" name="IM_STAB_COL_2" documentation="Collective pitch percentage at 40% collective stick travel. This setting allows a custom collective curve to get the helicopter to hover at center stick travel in Stabilize flight mode to line up the collective control for smooth transition to the altitude controlled flight modes. Setting this and the Stick at 60% points closer together will flatten the collective curve at center stick travel to make collective management easier in Stabilize flight mode" user="Standard">
-<field name="Range">30 65</field>
+<param humanName="Stick at 40%" name="IM_STAB_COL_2" documentation="Helicopter's collective pitch setting at mid-low throttle input in Stabilize mode" user="Standard">
+<field name="Range">0 500</field>
 <field name="Increment">1</field>
-<field name="Units">percent</field>
-<field name="UnitText">percent</field>
+<field name="Units">% x 10</field>
+<field name="UnitText">decipercent</field>
 </param>
-<param humanName="Stick at 60%" name="IM_STAB_COL_3" documentation="Collective pitch percentage at 60% collective stick travel. This setting allows a custom collective curve to get the helicopter to hover at center stick travel in Stabilize flight mode to line up the collective control for smooth transition to the altitude controlled flight modes. Setting this and the Stick at 40% points closer together will flatten the collective curve at center stick travel to make collective management easier in Stabilize flight mode" user="Standard">
-<field name="Range">50 85</field>
+<param humanName="Stick at 60%" name="IM_STAB_COL_3" documentation="Helicopter's collective pitch setting at mid-high throttle input in Stabilize mode" user="Standard">
+<field name="Range">500 1000</field>
 <field name="Increment">1</field>
-<field name="Units">percent</field>
-<field name="UnitText">percent</field>
+<field name="Units">% x 10</field>
+<field name="UnitText">decipercent</field>
 </param>
-<param humanName="Stick At Top" name="IM_STAB_COL_4" documentation="Collective pitch percentage at 100% collective stick travel. This setting allows a custom collective maximum pitch in Stabilize flight mode. If the setup has a significant amount of maximum collective and it is desired to not use the full the collective pitch in Stabilize, set this to a lower value than 100%" user="Standard">
-<field name="Range">85 100</field>
+<param humanName="Stick At Top" name="IM_STAB_COL_4" documentation="Helicopter's maximum collective pitch setting at full throttle input in Stabilize mode" user="Standard">
+<field name="Range">500 1000</field>
 <field name="Increment">1</field>
-<field name="Units">percent</field>
-<field name="UnitText">percent</field>
+<field name="Units">% x 10</field>
+<field name="UnitText">decipercent</field>
 </param>
 <param humanName="Acro Mode Collective Expo" name="IM_ACRO_COL_EXP" documentation="Used to soften collective pitch inputs near center point in Acro mode." user="Advanced">
 <values>
@@ -4920,6 +4895,1133 @@
 <value code="0">Disabled</value>
 </values>
 </param>
+<param humanName="LED Driver Types" name="NTF_LED_TYPES" documentation="Controls what types of LEDs will be enabled" user="Advanced">
+<field name="Bitmask">0:Build in LED, 1:Internal ToshibaLED, 2:External ToshibaLED, 3:External PCA9685, 4:Oreo LED, 5:UAVCAN, 6:NCP5623 External, 7:NCP5623 Internal</field>
+</param>
+</parameters>
+<parameters name="OSD">
+<param humanName="OSD type" name="OSD_TYPE" documentation="OSD type" user="Standard">
+<values>
+<value code="0">None</value>
+<value code="1">MAX7456</value>
+</values>
+<field name="RebootRequired">True</field>
+</param>
+<param humanName="Screen switch transmitter channel" name="OSD_CHAN" documentation="This sets the channel used to switch different OSD screens." user="Standard">
+<values>
+<value code="0">Disable</value>
+<value code="5">Chan5</value>
+<value code="6">Chan6</value>
+<value code="7">Chan7</value>
+<value code="8">Chan8</value>
+<value code="9">Chan9</value>
+<value code="10">Chan10</value>
+<value code="11">Chan11</value>
+<value code="12">Chan12</value>
+<value code="13">Chan13</value>
+<value code="14">Chan14</value>
+<value code="15">Chan15</value>
+<value code="16">Chan16</value>
+</values>
+</param>
+<param humanName="OSD Options" name="OSD_OPTIONS" documentation="This sets options that change the display" user="Standard">
+<field name="Bitmask">0:UseDecimalPack, 1:InvertedWindPointer, 2:InvertedAHRoll</field>
+</param>
+<param humanName="OSD Font" name="OSD_FONT" documentation="This sets which OSD font to use. It is an integer from 0 to the number of fonts available" user="Standard">
+<field name="RebootRequired">True</field>
+</param>
+<param humanName="OSD vertical offset" name="OSD_V_OFFSET" documentation="Sets vertical offset of the osd inside image" user="Standard">
+<field name="Range">0 31</field>
+<field name="RebootRequired">True</field>
+</param>
+<param humanName="OSD horizontal offset" name="OSD_H_OFFSET" documentation="Sets horizontal offset of the osd inside image" user="Standard">
+<field name="Range">0 63</field>
+<field name="RebootRequired">True</field>
+</param>
+<param humanName="RSSI warn level (in %)" name="OSD_W_RSSI" documentation="Set level at which RSSI item will flash" user="Standard">
+<field name="Range">0 99</field>
+</param>
+<param humanName="NSAT warn level" name="OSD_W_NSAT" documentation="Set level at which NSAT item will flash" user="Standard">
+<field name="Range">1 30</field>
+</param>
+<param humanName="BAT_VOLT warn level" name="OSD_W_BATVOLT" documentation="Set level at which BAT_VOLT item will flash" user="Standard">
+<field name="Range">0 100</field>
+</param>
+<param humanName="Display Units" name="OSD_UNITS" documentation="Sets the units to use in displaying items" user="Standard">
+<values>
+<value code="0">Metric</value>
+<value code="1">Imperial</value>
+<value code="2">SI</value>
+<value code="3">Aviation</value>
+</values>
+</param>
+<param humanName="Message display duration in seconds" name="OSD_MSG_TIME" documentation="Sets message duration seconds" user="Standard">
+<field name="Range">1 20</field>
+</param>
+</parameters>
+<parameters name="OSD1_">
+<param humanName="Enable screen" name="OSD1_ENABLE" documentation="Enable this screen" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="Transmitter switch screen minimum pwm" name="OSD1_CHAN_MIN" documentation="This sets the PWM lower limit for this screen" user="Standard">
+<field name="Range">900 2100</field>
+</param>
+<param humanName="Transmitter switch screen maximum pwm" name="OSD1_CHAN_MAX" documentation="This sets the PWM upper limit for this screen" user="Standard">
+<field name="Range">900 2100</field>
+</param>
+</parameters>
+<parameters name="OSD1_ALTITUDE">
+<param humanName="Enable" name="OSD1_ALTITUDE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_ALTITUDE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_ALTITUDE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_BATUSED">
+<param humanName="Enable" name="OSD1_BATUSED_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_BATUSED_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_BATUSED_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_BATVOLT">
+<param humanName="Enable" name="OSD1_BATVOLT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_BATVOLT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_BATVOLT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_BLHAMPS">
+<param humanName="Enable" name="OSD1_BLHAMPS_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_BLHAMPS_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_BLHAMPS_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_BLHRPM">
+<param humanName="Enable" name="OSD1_BLHRPM_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_BLHRPM_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_BLHRPM_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_BLHTEMP">
+<param humanName="Enable" name="OSD1_BLHTEMP_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_BLHTEMP_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_BLHTEMP_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_CURRENT">
+<param humanName="Enable" name="OSD1_CURRENT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_CURRENT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_CURRENT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_FLTMODE">
+<param humanName="Enable" name="OSD1_FLTMODE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_FLTMODE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_FLTMODE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_GPSLAT">
+<param humanName="Enable" name="OSD1_GPSLAT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_GPSLAT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_GPSLAT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_GPSLONG">
+<param humanName="Enable" name="OSD1_GPSLONG_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_GPSLONG_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_GPSLONG_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_GSPEED">
+<param humanName="Enable" name="OSD1_GSPEED_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_GSPEED_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_GSPEED_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_HOME">
+<param humanName="Enable" name="OSD1_HOME_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_HOME_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_HOME_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_HORIZON">
+<param humanName="Enable" name="OSD1_HORIZON_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_HORIZON_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_HORIZON_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_MESSAGE">
+<param humanName="Enable" name="OSD1_MESSAGE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_MESSAGE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_MESSAGE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_PITCH">
+<param humanName="Enable" name="OSD1_PITCH_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_PITCH_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_PITCH_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_ROLL">
+<param humanName="Enable" name="OSD1_ROLL_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_ROLL_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_ROLL_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_RSSI">
+<param humanName="Enable" name="OSD1_RSSI_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_RSSI_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_RSSI_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD1_SATS">
+<param humanName="Enable" name="OSD1_SATS_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD1_SATS_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD1_SATS_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_">
+<param humanName="Enable screen" name="OSD2_ENABLE" documentation="Enable this screen" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="Transmitter switch screen minimum pwm" name="OSD2_CHAN_MIN" documentation="This sets the PWM lower limit for this screen" user="Standard">
+<field name="Range">900 2100</field>
+</param>
+<param humanName="Transmitter switch screen maximum pwm" name="OSD2_CHAN_MAX" documentation="This sets the PWM upper limit for this screen" user="Standard">
+<field name="Range">900 2100</field>
+</param>
+</parameters>
+<parameters name="OSD2_ALTITUDE">
+<param humanName="Enable" name="OSD2_ALTITUDE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_ALTITUDE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_ALTITUDE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_BATUSED">
+<param humanName="Enable" name="OSD2_BATUSED_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_BATUSED_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_BATUSED_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_BATVOLT">
+<param humanName="Enable" name="OSD2_BATVOLT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_BATVOLT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_BATVOLT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_BLHAMPS">
+<param humanName="Enable" name="OSD2_BLHAMPS_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_BLHAMPS_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_BLHAMPS_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_BLHRPM">
+<param humanName="Enable" name="OSD2_BLHRPM_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_BLHRPM_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_BLHRPM_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_BLHTEMP">
+<param humanName="Enable" name="OSD2_BLHTEMP_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_BLHTEMP_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_BLHTEMP_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_CURRENT">
+<param humanName="Enable" name="OSD2_CURRENT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_CURRENT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_CURRENT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_FLTMODE">
+<param humanName="Enable" name="OSD2_FLTMODE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_FLTMODE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_FLTMODE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_GPSLAT">
+<param humanName="Enable" name="OSD2_GPSLAT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_GPSLAT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_GPSLAT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_GPSLONG">
+<param humanName="Enable" name="OSD2_GPSLONG_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_GPSLONG_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_GPSLONG_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_GSPEED">
+<param humanName="Enable" name="OSD2_GSPEED_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_GSPEED_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_GSPEED_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_HOME">
+<param humanName="Enable" name="OSD2_HOME_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_HOME_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_HOME_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_HORIZON">
+<param humanName="Enable" name="OSD2_HORIZON_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_HORIZON_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_HORIZON_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_MESSAGE">
+<param humanName="Enable" name="OSD2_MESSAGE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_MESSAGE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_MESSAGE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_PITCH">
+<param humanName="Enable" name="OSD2_PITCH_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_PITCH_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_PITCH_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_ROLL">
+<param humanName="Enable" name="OSD2_ROLL_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_ROLL_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_ROLL_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_RSSI">
+<param humanName="Enable" name="OSD2_RSSI_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_RSSI_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_RSSI_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD2_SATS">
+<param humanName="Enable" name="OSD2_SATS_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD2_SATS_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD2_SATS_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_">
+<param humanName="Enable screen" name="OSD3_ENABLE" documentation="Enable this screen" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="Transmitter switch screen minimum pwm" name="OSD3_CHAN_MIN" documentation="This sets the PWM lower limit for this screen" user="Standard">
+<field name="Range">900 2100</field>
+</param>
+<param humanName="Transmitter switch screen maximum pwm" name="OSD3_CHAN_MAX" documentation="This sets the PWM upper limit for this screen" user="Standard">
+<field name="Range">900 2100</field>
+</param>
+</parameters>
+<parameters name="OSD3_ALTITUDE">
+<param humanName="Enable" name="OSD3_ALTITUDE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_ALTITUDE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_ALTITUDE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_BATUSED">
+<param humanName="Enable" name="OSD3_BATUSED_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_BATUSED_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_BATUSED_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_BATVOLT">
+<param humanName="Enable" name="OSD3_BATVOLT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_BATVOLT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_BATVOLT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_BLHAMPS">
+<param humanName="Enable" name="OSD3_BLHAMPS_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_BLHAMPS_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_BLHAMPS_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_BLHRPM">
+<param humanName="Enable" name="OSD3_BLHRPM_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_BLHRPM_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_BLHRPM_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_BLHTEMP">
+<param humanName="Enable" name="OSD3_BLHTEMP_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_BLHTEMP_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_BLHTEMP_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_CURRENT">
+<param humanName="Enable" name="OSD3_CURRENT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_CURRENT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_CURRENT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_FLTMODE">
+<param humanName="Enable" name="OSD3_FLTMODE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_FLTMODE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_FLTMODE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_GPSLAT">
+<param humanName="Enable" name="OSD3_GPSLAT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_GPSLAT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_GPSLAT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_GPSLONG">
+<param humanName="Enable" name="OSD3_GPSLONG_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_GPSLONG_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_GPSLONG_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_GSPEED">
+<param humanName="Enable" name="OSD3_GSPEED_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_GSPEED_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_GSPEED_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_HOME">
+<param humanName="Enable" name="OSD3_HOME_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_HOME_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_HOME_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_HORIZON">
+<param humanName="Enable" name="OSD3_HORIZON_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_HORIZON_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_HORIZON_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_MESSAGE">
+<param humanName="Enable" name="OSD3_MESSAGE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_MESSAGE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_MESSAGE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_PITCH">
+<param humanName="Enable" name="OSD3_PITCH_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_PITCH_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_PITCH_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_ROLL">
+<param humanName="Enable" name="OSD3_ROLL_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_ROLL_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_ROLL_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_RSSI">
+<param humanName="Enable" name="OSD3_RSSI_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_RSSI_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_RSSI_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD3_SATS">
+<param humanName="Enable" name="OSD3_SATS_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD3_SATS_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD3_SATS_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_">
+<param humanName="Enable screen" name="OSD4_ENABLE" documentation="Enable this screen" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="Transmitter switch screen minimum pwm" name="OSD4_CHAN_MIN" documentation="This sets the PWM lower limit for this screen" user="Standard">
+<field name="Range">900 2100</field>
+</param>
+<param humanName="Transmitter switch screen maximum pwm" name="OSD4_CHAN_MAX" documentation="This sets the PWM upper limit for this screen" user="Standard">
+<field name="Range">900 2100</field>
+</param>
+</parameters>
+<parameters name="OSD4_ALTITUDE">
+<param humanName="Enable" name="OSD4_ALTITUDE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_ALTITUDE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_ALTITUDE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_BATUSED">
+<param humanName="Enable" name="OSD4_BATUSED_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_BATUSED_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_BATUSED_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_BATVOLT">
+<param humanName="Enable" name="OSD4_BATVOLT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_BATVOLT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_BATVOLT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_BLHAMPS">
+<param humanName="Enable" name="OSD4_BLHAMPS_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_BLHAMPS_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_BLHAMPS_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_BLHRPM">
+<param humanName="Enable" name="OSD4_BLHRPM_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_BLHRPM_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_BLHRPM_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_BLHTEMP">
+<param humanName="Enable" name="OSD4_BLHTEMP_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_BLHTEMP_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_BLHTEMP_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_CURRENT">
+<param humanName="Enable" name="OSD4_CURRENT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_CURRENT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_CURRENT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_FLTMODE">
+<param humanName="Enable" name="OSD4_FLTMODE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_FLTMODE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_FLTMODE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_GPSLAT">
+<param humanName="Enable" name="OSD4_GPSLAT_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_GPSLAT_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_GPSLAT_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_GPSLONG">
+<param humanName="Enable" name="OSD4_GPSLONG_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_GPSLONG_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_GPSLONG_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_GSPEED">
+<param humanName="Enable" name="OSD4_GSPEED_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_GSPEED_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_GSPEED_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_HOME">
+<param humanName="Enable" name="OSD4_HOME_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_HOME_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_HOME_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_HORIZON">
+<param humanName="Enable" name="OSD4_HORIZON_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_HORIZON_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_HORIZON_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_MESSAGE">
+<param humanName="Enable" name="OSD4_MESSAGE_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_MESSAGE_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_MESSAGE_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_PITCH">
+<param humanName="Enable" name="OSD4_PITCH_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_PITCH_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_PITCH_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_ROLL">
+<param humanName="Enable" name="OSD4_ROLL_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_ROLL_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_ROLL_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_RSSI">
+<param humanName="Enable" name="OSD4_RSSI_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_RSSI_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_RSSI_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
+</parameters>
+<parameters name="OSD4_SATS">
+<param humanName="Enable" name="OSD4_SATS_EN" documentation="Enable setting" user="Standard">
+<values>
+<value code="0">Disabled</value>
+<value code="1">Enabled</value>
+</values>
+</param>
+<param humanName="X position" name="OSD4_SATS_X" documentation="Horizontal position on screen" user="Standard">
+<field name="Range">0 29</field>
+</param>
+<param humanName="Y position" name="OSD4_SATS_Y" documentation="Vertical position on screen" user="Standard">
+<field name="Range">0 15</field>
+</param>
 </parameters>
 <parameters name="PLND_">
 <param humanName="Precision Land enabled/disabled and behaviour" name="PLND_ENABLED" documentation="Precision Land enabled/disabled and behaviour" user="Advanced">
@@ -4994,6 +6096,7 @@
 <value code="3">TeraRangerTower</value>
 <value code="4">RangeFinder</value>
 <value code="5">RPLidarA2</value>
+<value code="6">TeraRangerTowerEvo</value>
 </values>
 <field name="RebootRequired">True</field>
 </param>
@@ -5076,6 +6179,7 @@
 <value code="3">TeraRangerTower</value>
 <value code="4">RangeFinder</value>
 <value code="5">RPLidarA2</value>
+<value code="6">TeraRangerTowerEvo</value>
 </values>
 <field name="RebootRequired">True</field>
 </param>
@@ -5175,6 +6279,13 @@
 <value code="0">DoNotIncludeHome</value>
 <value code="1">IncludeHome</value>
 </values>
+</param>
+</parameters>
+<parameters name="RC">
+<param humanName="RC override timeout" name="RC_OVERRIDE_TIME" documentation="Timeout after which RC overrides will no longer be used, and RC input will resume, 0 will disable RC overrides, -1 will never timeout, and continue using overrides until they are disabled" user="Advanced">
+<field name="Range">0.0 120.0</field>
+<field name="Units">s</field>
+<field name="UnitText">seconds</field>
 </param>
 </parameters>
 <parameters name="RC10_">
@@ -5818,6 +6929,10 @@
 <value code="15">LidarLiteV3-I2C</value>
 <value code="16">VL53L0X</value>
 <value code="17">NMEA</value>
+<value code="18">WASP-LRF</value>
+<value code="19">BenewakeTF02</value>
+<value code="20">BenewakeTFmini</value>
+<value code="21">LidarLiteV3HP-I2C</value>
 </values>
 </param>
 <param humanName="Rangefinder pin" name="RNGFND_PIN" documentation="Analog pin that rangefinder is connected to. Set this to 0..9 for the APM2 analog pins. Set to 64 on an APM1 for the dedicated 'airspeed' port on the end of the board. Set to 11 on PX4 for the analog 'airspeed' port. Set to 15 on the Pixhawk for the analog 'airspeed' port." user="Standard">
@@ -5953,6 +7068,10 @@
 <value code="15">LidarLiteV3-I2C</value>
 <value code="16">VL53L0X</value>
 <value code="17">NMEA</value>
+<value code="18">WASP-LRF</value>
+<value code="19">BenewakeTF02</value>
+<value code="20">BenewakeTFmini</value>
+<value code="21">LidarLiteV3HP-I2C</value>
 </values>
 </param>
 <param humanName="Rangefinder pin" name="RNGFND2_PIN" documentation="Analog pin that rangefinder is connected to. Set this to 0..9 for the APM2 analog pins. Set to 64 on an APM1 for the dedicated 'airspeed' port on the end of the board. Set to 11 on PX4 for the analog 'airspeed' port. Set to 15 on the Pixhawk for the analog 'airspeed' port." user="Advanced">
@@ -6083,6 +7202,10 @@
 <value code="15">LidarLiteV3-I2C</value>
 <value code="16">VL53L0X</value>
 <value code="17">NMEA</value>
+<value code="18">WASP-LRF</value>
+<value code="19">BenewakeTF02</value>
+<value code="20">BenewakeTFmini</value>
+<value code="21">LidarLiteV3HP-I2C</value>
 </values>
 </param>
 <param humanName="Rangefinder pin" name="RNGFND3_PIN" documentation="Analog pin that rangefinder is connected to. Set this to 0..9 for the APM2 analog pins. Set to 64 on an APM1 for the dedicated 'airspeed' port on the end of the board. Set to 11 on PX4 for the analog 'airspeed' port. Set to 15 on the Pixhawk for the analog 'airspeed' port." user="Advanced">
@@ -6213,6 +7336,10 @@
 <value code="15">LidarLiteV3-I2C</value>
 <value code="16">VL53L0X</value>
 <value code="17">NMEA</value>
+<value code="18">WASP-LRF</value>
+<value code="19">BenewakeTF02</value>
+<value code="20">BenewakeTFmini</value>
+<value code="21">LidarLiteV3HP-I2C</value>
 </values>
 </param>
 <param humanName="Rangefinder pin" name="RNGFND4_PIN" documentation="Analog pin that rangefinder is connected to. Set this to 0..9 for the APM2 analog pins. Set to 64 on an APM1 for the dedicated 'airspeed' port on the end of the board. Set to 11 on PX4 for the analog 'airspeed' port. Set to 15 on the Pixhawk for the analog 'airspeed' port." user="Advanced">
@@ -6325,6 +7452,98 @@
 </values>
 </param>
 </parameters>
+<parameters name="RNGFND2_">
+<param humanName="Moving Average Range" name="RNGFND2_WSP_MAVG" documentation="Sets the number of historic range results to use for calculating the current range result. When MAVG is greater than 1, the current range result will be the current measured value averaged with the N-1 previous results" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Moving Median Filter" name="RNGFND2_WSP_MEDF" documentation="Sets the window size for the real-time median filter. When MEDF is greater than 0 the median filter is active" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Frequency" name="RNGFND2_WSP_FRQ" documentation="Sets the repetition frequency of the ranging operation in Hertz. Upon entering the desired frequency the system will calculate the nearest frequency that it can handle according to the resolution of internal timers." user="Advanced">
+<field name="Range">0 10000</field>
+</param>
+<param humanName="Multi-pulse averages" name="RNGFND2_WSP_AVG" documentation="Sets the number of pulses to be used in multi-pulse averaging mode. In this mode, a sequence of rapid fire ranges are taken and then averaged to improve the accuracy of the measurement" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Sensitivity threshold" name="RNGFND2_WSP_THR" documentation="Sets the system sensitivity. Larger values of THR represent higher sensitivity. The system may limit the maximum value of THR to prevent excessive false alarm rates based on settings made at the factory. Set to -1 for automatic threshold adjustments" user="Advanced">
+<field name="Range">-1 255</field>
+</param>
+<param humanName="Baud rate" name="RNGFND2_WSP_BAUD" documentation="Desired baud rate" user="Advanced">
+<values>
+<value code="0">Low Speed</value>
+<value code="1">High Speed</value>
+</values>
+</param>
+</parameters>
+<parameters name="RNGFND3_">
+<param humanName="Moving Average Range" name="RNGFND3_WSP_MAVG" documentation="Sets the number of historic range results to use for calculating the current range result. When MAVG is greater than 1, the current range result will be the current measured value averaged with the N-1 previous results" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Moving Median Filter" name="RNGFND3_WSP_MEDF" documentation="Sets the window size for the real-time median filter. When MEDF is greater than 0 the median filter is active" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Frequency" name="RNGFND3_WSP_FRQ" documentation="Sets the repetition frequency of the ranging operation in Hertz. Upon entering the desired frequency the system will calculate the nearest frequency that it can handle according to the resolution of internal timers." user="Advanced">
+<field name="Range">0 10000</field>
+</param>
+<param humanName="Multi-pulse averages" name="RNGFND3_WSP_AVG" documentation="Sets the number of pulses to be used in multi-pulse averaging mode. In this mode, a sequence of rapid fire ranges are taken and then averaged to improve the accuracy of the measurement" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Sensitivity threshold" name="RNGFND3_WSP_THR" documentation="Sets the system sensitivity. Larger values of THR represent higher sensitivity. The system may limit the maximum value of THR to prevent excessive false alarm rates based on settings made at the factory. Set to -1 for automatic threshold adjustments" user="Advanced">
+<field name="Range">-1 255</field>
+</param>
+<param humanName="Baud rate" name="RNGFND3_WSP_BAUD" documentation="Desired baud rate" user="Advanced">
+<values>
+<value code="0">Low Speed</value>
+<value code="1">High Speed</value>
+</values>
+</param>
+</parameters>
+<parameters name="RNGFND4_">
+<param humanName="Moving Average Range" name="RNGFND4_WSP_MAVG" documentation="Sets the number of historic range results to use for calculating the current range result. When MAVG is greater than 1, the current range result will be the current measured value averaged with the N-1 previous results" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Moving Median Filter" name="RNGFND4_WSP_MEDF" documentation="Sets the window size for the real-time median filter. When MEDF is greater than 0 the median filter is active" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Frequency" name="RNGFND4_WSP_FRQ" documentation="Sets the repetition frequency of the ranging operation in Hertz. Upon entering the desired frequency the system will calculate the nearest frequency that it can handle according to the resolution of internal timers." user="Advanced">
+<field name="Range">0 10000</field>
+</param>
+<param humanName="Multi-pulse averages" name="RNGFND4_WSP_AVG" documentation="Sets the number of pulses to be used in multi-pulse averaging mode. In this mode, a sequence of rapid fire ranges are taken and then averaged to improve the accuracy of the measurement" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Sensitivity threshold" name="RNGFND4_WSP_THR" documentation="Sets the system sensitivity. Larger values of THR represent higher sensitivity. The system may limit the maximum value of THR to prevent excessive false alarm rates based on settings made at the factory. Set to -1 for automatic threshold adjustments" user="Advanced">
+<field name="Range">-1 255</field>
+</param>
+<param humanName="Baud rate" name="RNGFND4_WSP_BAUD" documentation="Desired baud rate" user="Advanced">
+<values>
+<value code="0">Low Speed</value>
+<value code="1">High Speed</value>
+</values>
+</param>
+</parameters>
+<parameters name="RNGFND_">
+<param humanName="Moving Average Range" name="RNGFND_WSP_MAVG" documentation="Sets the number of historic range results to use for calculating the current range result. When MAVG is greater than 1, the current range result will be the current measured value averaged with the N-1 previous results" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Moving Median Filter" name="RNGFND_WSP_MEDF" documentation="Sets the window size for the real-time median filter. When MEDF is greater than 0 the median filter is active" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Frequency" name="RNGFND_WSP_FRQ" documentation="Sets the repetition frequency of the ranging operation in Hertz. Upon entering the desired frequency the system will calculate the nearest frequency that it can handle according to the resolution of internal timers." user="Advanced">
+<field name="Range">0 10000</field>
+</param>
+<param humanName="Multi-pulse averages" name="RNGFND_WSP_AVG" documentation="Sets the number of pulses to be used in multi-pulse averaging mode. In this mode, a sequence of rapid fire ranges are taken and then averaged to improve the accuracy of the measurement" user="Advanced">
+<field name="Range">0 255</field>
+</param>
+<param humanName="Sensitivity threshold" name="RNGFND_WSP_THR" documentation="Sets the system sensitivity. Larger values of THR represent higher sensitivity. The system may limit the maximum value of THR to prevent excessive false alarm rates based on settings made at the factory. Set to -1 for automatic threshold adjustments" user="Advanced">
+<field name="Range">-1 255</field>
+</param>
+<param humanName="Baud rate" name="RNGFND_WSP_BAUD" documentation="Desired baud rate" user="Advanced">
+<values>
+<value code="0">Low Speed</value>
+<value code="1">High Speed</value>
+</values>
+</param>
+</parameters>
 <parameters name="RPM">
 <param humanName="RPM type" name="RPM_TYPE" documentation="What type of RPM sensor is connected" user="Standard">
 <values>
@@ -6385,41 +7604,47 @@
 <value code="1">AnalogPin</value>
 <value code="2">RCChannelPwmValue</value>
 <value code="3">ReceiverProtocol</value>
+<value code="4">PWMInputPin</value>
 </values>
 </param>
-<param humanName="Receiver RSSI analog sensing pin" name="RSSI_ANA_PIN" documentation="This selects an analog pin where the receiver RSSI voltage will be read." user="Standard">
+<param humanName="Receiver RSSI sensing pin" name="RSSI_ANA_PIN" documentation="Pin used to read the RSSI voltage or PWM value" user="Standard">
 <values>
-<value code="0">APM2 A0</value>
-<value code="1">APM2 A1</value>
-<value code="13">APM2 A13</value>
+<value code="8">V5 Nano</value>
 <value code="11">Pixracer</value>
 <value code="13">Pixhawk ADC4</value>
 <value code="14">Pixhawk ADC3</value>
 <value code="15">Pixhawk ADC6</value>
-<value code="103">Pixhawk SBUS</value>
 <value code="15">Pixhawk2 ADC</value>
+<value code="50">PixhawkAUX1</value>
+<value code="51">PixhawkAUX2</value>
+<value code="52">PixhawkAUX3</value>
+<value code="53">PixhawkAUX4</value>
+<value code="54">PixhawkAUX5</value>
+<value code="55">PixhawkAUX6</value>
+<value code="103">Pixhawk SBUS</value>
 </values>
 </param>
-<param humanName="Receiver RSSI voltage low" name="RSSI_PIN_LOW" documentation="This is the voltage value that the radio receiver will put on the RSSI_ANA_PIN when the signal strength is the weakest. Since some radio receivers put out inverted values from what you might otherwise expect, this isn't necessarily a lower value than RSSI_PIN_HIGH. " user="Standard">
+<param humanName="RSSI pin's lowest voltage" name="RSSI_PIN_LOW" documentation="RSSI pin's voltage received on the RSSI_ANA_PIN when the signal strength is the weakest. Some radio receivers put out inverted values so this value may be higher than RSSI_PIN_HIGH" user="Standard">
 <field name="Range">0 5.0</field>
 <field name="Increment">0.01</field>
 <field name="Units">V</field>
 <field name="UnitText">volt</field>
 </param>
-<param humanName="Receiver RSSI voltage high" name="RSSI_PIN_HIGH" documentation="This is the voltage value that the radio receiver will put on the RSSI_ANA_PIN when the signal strength is the strongest. Since some radio receivers put out inverted values from what you might otherwise expect, this isn't necessarily a higher value than RSSI_PIN_LOW. " user="Standard">
+<param humanName="RSSI pin's highest voltage" name="RSSI_PIN_HIGH" documentation="RSSI pin's voltage received on the RSSI_ANA_PIN when the signal strength is the strongest. Some radio receivers put out inverted values so this value may be lower than RSSI_PIN_LOW" user="Standard">
 <field name="Range">0 5.0</field>
 <field name="Increment">0.01</field>
 <field name="Units">V</field>
 <field name="UnitText">volt</field>
 </param>
 <param humanName="Receiver RSSI channel number" name="RSSI_CHANNEL" documentation="The channel number where RSSI will be output by the radio receiver (5 and above)." user="Standard">
+<field name="Range">0 16</field>
 </param>
-<param humanName="Receiver RSSI PWM low value" name="RSSI_CHAN_LOW" documentation="This is the PWM value in microseconds that the radio receiver will put on the RSSI_CHANNEL when the signal strength is the weakest. Since some radio receivers put out inverted values from what you might otherwise expect, this isn't necessarily a lower value than RSSI_CHAN_HIGH." user="Standard">
+<param humanName="RSSI PWM low value" name="RSSI_CHAN_LOW" documentation="PWM value that the radio receiver will put on the RSSI_CHANNEL or RSSI_ANA_PIN when the signal strength is the weakest. Some radio receivers output inverted values so this value may be lower than RSSI_CHAN_HIGH" user="Standard">
 <field name="Range">0 2000</field>
 <field name="Units">PWM</field>
 <field name="UnitText">PWM in microseconds</field>
 </param>
-<param humanName="Receiver RSSI PWM high value" name="RSSI_CHAN_HIGH" documentation="This is the PWM value in microseconds that the radio receiver will put on the RSSI_CHANNEL when the signal strength is the strongest. Since some radio receivers put out inverted values from what you might otherwise expect, this isn't necessarily a higher value than RSSI_CHAN_LOW." user="Standard">
+<param humanName="Receiver RSSI PWM high value" name="RSSI_CHAN_HIGH" documentation="PWM value that the radio receiver will put on the RSSI_CHANNEL or RSSI_ANA_PIN when the signal strength is the strongest. Some radio receivers output inverted values so this value may be higher than RSSI_CHAN_LOW" user="Standard">
 <field name="Range">0 2000</field>
 <field name="Units">PWM</field>
 <field name="UnitText">PWM in microseconds</field>
@@ -6488,6 +7713,7 @@
 <value code=" 15">SBus servo out</value>
 <value code=" 16">ESC Telemetry</value>
 <value code=" 17">Devo Telemetry</value>
+<value code=" 18">OpticalFlow</value>
 </values>
 <field name="RebootRequired">True</field>
 </param>
@@ -6525,6 +7751,7 @@
 <value code=" 15">SBus servo out</value>
 <value code=" 16">ESC Telemetry</value>
 <value code=" 17">Devo Telemetry</value>
+<value code=" 18">OpticalFlow</value>
 </values>
 <field name="RebootRequired">True</field>
 </param>
@@ -6562,6 +7789,7 @@
 <value code=" 15">SBus servo out</value>
 <value code=" 16">ESC Telemetry</value>
 <value code=" 17">Devo Telemetry</value>
+<value code=" 18">OpticalFlow</value>
 </values>
 <field name="RebootRequired">True</field>
 </param>
@@ -6599,6 +7827,7 @@
 <value code=" 15">SBus servo out</value>
 <value code=" 16">ESC Telemetry</value>
 <value code=" 17">Devo Telemetry</value>
+<value code=" 18">OpticalFlow</value>
 </values>
 <field name="RebootRequired">True</field>
 </param>
@@ -6636,10 +7865,49 @@
 <value code=" 15">SBus servo out</value>
 <value code=" 16">ESC Telemetry</value>
 <value code=" 17">Devo Telemetry</value>
+<value code=" 18">OpticalFlow</value>
 </values>
 <field name="RebootRequired">True</field>
 </param>
 <param humanName="Serial 5 Baud Rate" name="SERIAL5_BAUD" documentation="The baud rate used for Serial5. The APM2 can support all baudrates up to 115, and also can support 500. The PX4 can support rates of up to 1500. If you setup a rate you cannot support on APM2 and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
+<values>
+<value code="1">1200</value>
+<value code="2">2400</value>
+<value code="4">4800</value>
+<value code="9">9600</value>
+<value code="19">19200</value>
+<value code="38">38400</value>
+<value code="57">57600</value>
+<value code="111">111100</value>
+<value code="115">115200</value>
+<value code="500">500000</value>
+<value code="921">921600</value>
+<value code="1500">1500000</value>
+</values>
+</param>
+<param humanName="Serial6 protocol selection" name="SERIAL6_PROTOCOL" documentation="Control what protocol Serial6 port should be used for. Note that the Frsky options require external converter hardware. See the wiki for details." user="Standard">
+<values>
+<value code="-1">None</value>
+<value code=" 1">MAVLink1</value>
+<value code=" 2">MAVLink2</value>
+<value code=" 3">Frsky D</value>
+<value code=" 4">Frsky SPort</value>
+<value code=" 5">GPS</value>
+<value code=" 7">Alexmos Gimbal Serial</value>
+<value code=" 8">SToRM32 Gimbal Serial</value>
+<value code=" 9">Rangefinder</value>
+<value code=" 10">FrSky SPort Passthrough (OpenTX)</value>
+<value code=" 11">Lidar360</value>
+<value code=" 13">Beacon</value>
+<value code=" 14">Volz servo out</value>
+<value code=" 15">SBus servo out</value>
+<value code=" 16">ESC Telemetry</value>
+<value code=" 17">Devo Telemetry</value>
+<value code=" 18">OpticalFlow</value>
+</values>
+<field name="RebootRequired">True</field>
+</param>
+<param humanName="Serial 6 Baud Rate" name="SERIAL6_BAUD" documentation="The baud rate used for Serial6. The APM2 can support all baudrates up to 115, and also can support 500. The PX4 can support rates of up to 1500. If you setup a rate you cannot support on APM2 and then can't connect to your board you should load a firmware from a different vehicle type. That will reset all your parameters to defaults." user="Standard">
 <values>
 <value code="1">1200</value>
 <value code="2">2400</value>
@@ -6694,7 +7962,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="Cyclic10_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="SERVO10_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -6724,12 +7992,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -6799,7 +8067,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="Cyclic11_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="SERVO11_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -6829,12 +8097,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -6904,7 +8172,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="Cyclic12_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="SERVO12_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -6934,12 +8202,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -7009,7 +8277,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="Cyclic13_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="SERVO13_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -7039,12 +8307,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -7114,7 +8382,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="Cyclic14_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="SERVO14_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -7144,12 +8412,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -7219,7 +8487,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="Cyclic15_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="SERVO15_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -7249,12 +8517,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -7324,7 +8592,7 @@
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Servo output function" name="Cyclic16_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
+<param humanName="Servo output function" name="SERVO16_FUNCTION" documentation="Function assigned to this servo. Seeing this to Disabled(0) will setup this output for control by auto missions or MAVLink servo set commands. any other value will enable the corresponding function" user="Standard">
 <values>
 <value code="0">Disabled</value>
 <value code="1">RCPassThru</value>
@@ -7354,12 +8622,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -7459,12 +8727,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -7564,12 +8832,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -7669,12 +8937,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -7774,12 +9042,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -7879,12 +9147,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -7984,12 +9252,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -8089,12 +9357,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -8194,12 +9462,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -8299,12 +9567,12 @@
 <value code="28">EPM</value>
 <value code="29">LandingGear</value>
 <value code="30">EngineRunEnable</value>
-<value code="31">AutoThrottle1</value>
-<value code="32">AutoThrottle2</value>
+<value code="31">HeliThrottle</value>
+<value code="32">Reserved</value>
 <value code="33">Cyclic1</value>
 <value code="34">Cyclic2</value>
 <value code="35">Cyclic3</value>
-<value code="36">Tail</value>
+<value code="36">TailServo</value>
 <value code="37">Cyclic4</value>
 <value code="38">Motor6</value>
 <value code="39">Motor7</value>
@@ -8398,6 +9666,16 @@
 <value code="5">DShot300</value>
 <value code="6">DShot600</value>
 <value code="7">DShot1200</value>
+</values>
+</param>
+<param humanName="Control port" name="SERVO_BLH_PORT" documentation="This sets the telemetry port to use for blheli pass-thru" user="Advanced">
+<values>
+<value code="0">Console</value>
+<value code="1">Telem1</value>
+<value code="2">Telem2</value>
+<value code="3">Telem3</value>
+<value code="4">Telem4</value>
+<value code="5">Telem5</value>
 </values>
 </param>
 </parameters>

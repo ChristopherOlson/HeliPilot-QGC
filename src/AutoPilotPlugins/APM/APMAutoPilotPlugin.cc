@@ -98,7 +98,7 @@ const QVariantList& APMAutoPilotPlugin::vehicleComponents(void)
             _components.append(QVariant::fromValue((VehicleComponent*)_powerComponent));
             
             // no motors component for HeliPilot helicopters
-            if (_vehicle->versionCompare(19, 0, 0) <= 0) {
+            if (_vehicle->vehicleType() != MAV_TYPE_HELICOPTER) {
                 if (!_vehicle->sub() || (_vehicle->sub() && _vehicle->versionCompare(3, 5, 3) >= 0)) {
                     _motorComponent = new APMMotorComponent(_vehicle, this);
                     _motorComponent->setupTriggerSignals();
@@ -121,7 +121,7 @@ const QVariantList& APMAutoPilotPlugin::vehicleComponents(void)
             }
 #endif
 
-            if (_vehicle->vehicleType() == MAV_TYPE_HELICOPTER && (_vehicle->versionCompare(20, 0, 0) >= 0)) {
+            if (_vehicle->vehicleType() == MAV_TYPE_HELICOPTER && (_vehicle->versionCompare(19, 0, 0) >= 0)) {
                 _heliComponent = new APMHeliComponent(_vehicle, this);
                 _heliComponent->setupTriggerSignals();
                 _components.append(QVariant::fromValue((VehicleComponent*)_heliComponent));

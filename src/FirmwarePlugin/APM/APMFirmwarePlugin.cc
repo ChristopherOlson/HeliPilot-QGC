@@ -834,8 +834,11 @@ QString APMFirmwarePlugin::internalParameterMetaDataFile(Vehicle* vehicle)
     case MAV_TYPE_TRICOPTER:
     case MAV_TYPE_COAXIAL:
     case MAV_TYPE_HELICOPTER:
-    if (vehicle->versionCompare(20, 2, 0) >= 0) {
-            return QStringLiteral(":/FirmwarePlugin/APM/APMParameterFactMetaData.Copter.20.2.xml");
+    if (vehicle->versionCompare(20, 0, 0) >= 0) {
+            return QStringLiteral(":/FirmwarePlugin/APM/APMParameterFactMetaData.HeliPilot.20.0.xml");
+        }
+        if (vehicle->versionCompare(19, 0, 0) >= 0) {
+            return QStringLiteral(":/FirmwarePlugin/APM/APMParameterFactMetaData.HeliPilot.19.0.xml");
         }
         if (vehicle->versionCompare(4, 0, 0) >= 0) {
             return QStringLiteral(":/FirmwarePlugin/APM/APMParameterFactMetaData.Copter.4.0.xml");
