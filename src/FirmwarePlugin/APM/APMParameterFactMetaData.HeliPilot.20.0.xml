@@ -1413,11 +1413,11 @@
 <field name="UnitText">hertz</field>
 </param>
 <param humanName="Pitch axis rate controller P gain" name="ATC_RAT_PIT_P" documentation="Pitch axis rate controller P gain.  Converts the difference between desired pitch rate and actual pitch rate into a motor speed output" user="Standard">
-<field name="Range">0.05 0.50</field>
-<field name="Increment">0.005</field>
+<field name="Range">0 .10</field>
+<field name="Increment">0.001</field>
 </param>
 <param humanName="Pitch axis rate controller I gain" name="ATC_RAT_PIT_I" documentation="Pitch axis rate controller I gain.  Corrects long-term difference in desired pitch rate vs actual pitch rate" user="Standard">
-<field name="Range">0.01 2.0</field>
+<field name="Range">0.0 0.4</field>
 <field name="Increment">0.01</field>
 </param>
 <param humanName="Pitch axis rate controller I gain maximum" name="ATC_RAT_PIT_IMAX" documentation="Pitch axis rate controller I gain maximum.  Constrains the maximum motor output that the I gain will output" user="Standard">
@@ -1483,11 +1483,11 @@
 <field name="UnitText">centidegrees</field>
 </param>
 <param humanName="Roll axis rate controller P gain" name="ATC_RAT_RLL_P" documentation="Roll axis rate controller P gain.  Converts the difference between desired roll rate and actual roll rate into a motor speed output" user="Standard">
-<field name="Range">0.08 0.35</field>
-<field name="Increment">0.005</field>
+<field name="Range">0 .1</field>
+<field name="Increment">0.001</field>
 </param>
 <param humanName="Roll axis rate controller I gain" name="ATC_RAT_RLL_I" documentation="Roll axis rate controller I gain.  Corrects long-term difference in desired roll rate vs actual roll rate" user="Standard">
-<field name="Range">0.01 0.6</field>
+<field name="Range">0.0 0.4</field>
 <field name="Increment">0.01</field>
 </param>
 <param humanName="Roll axis rate controller I gain maximum" name="ATC_RAT_RLL_IMAX" documentation="Roll axis rate controller I gain maximum.  Constrains the maximum motor output that the I gain will output" user="Standard">
@@ -1495,8 +1495,8 @@
 <field name="Increment">0.01</field>
 </param>
 <param humanName="Roll axis rate controller D gain" name="ATC_RAT_RLL_D" documentation="Roll axis rate controller D gain.  Compensates for short-term change in desired roll rate vs actual roll rate" user="Standard">
-<field name="Range">0.001 0.03</field>
-<field name="Increment">0.001</field>
+<field name="Range">0.0 0.01</field>
+<field name="Increment">0.0001</field>
 </param>
 <param humanName="Roll axis rate controller feed forward" name="ATC_RAT_RLL_FF" documentation="Roll axis rate controller feed forward" user="Standard">
 <field name="Range">0 0.5</field>
@@ -1509,11 +1509,11 @@
 <field name="UnitText">hertz</field>
 </param>
 <param humanName="Pitch axis rate controller P gain" name="ATC_RAT_PIT_P" documentation="Pitch axis rate controller P gain.  Converts the difference between desired pitch rate and actual pitch rate into a motor speed output" user="Standard">
-<field name="Range">0.08 0.35</field>
-<field name="Increment">0.005</field>
+<field name="Range">0.0 0.1</field>
+<field name="Increment">0.001</field>
 </param>
 <param humanName="Pitch axis rate controller I gain" name="ATC_RAT_PIT_I" documentation="Pitch axis rate controller I gain.  Corrects long-term difference in desired pitch rate vs actual pitch rate" user="Standard">
-<field name="Range">0.01 0.6</field>
+<field name="Range">0.0 0.4</field>
 <field name="Increment">0.01</field>
 </param>
 <param humanName="Pitch axis rate controller I gain maximum" name="ATC_RAT_PIT_IMAX" documentation="Pitch axis rate controller I gain maximum.  Constrains the maximum motor output that the I gain will output" user="Standard">
@@ -1521,8 +1521,8 @@
 <field name="Increment">0.01</field>
 </param>
 <param humanName="Pitch axis rate controller D gain" name="ATC_RAT_PIT_D" documentation="Pitch axis rate controller D gain.  Compensates for short-term change in desired pitch rate vs actual pitch rate" user="Standard">
-<field name="Range">0.001 0.03</field>
-<field name="Increment">0.001</field>
+<field name="Range">0.0 0.01</field>
+<field name="Increment">0.0001</field>
 </param>
 <param humanName="Pitch axis rate controller feed forward" name="ATC_RAT_PIT_FF" documentation="Pitch axis rate controller feed forward" user="Standard">
 <field name="Range">0 0.5</field>
