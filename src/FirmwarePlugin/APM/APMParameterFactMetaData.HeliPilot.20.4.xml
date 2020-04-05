@@ -3675,7 +3675,7 @@
 <field name="Units">seconds</field>
 <field name="UnitText">seconds</field>
 </param>
-<param humanName="Swashplate Setup" name="H_SWASH_SETUP" documentation="Manual servo override for swashplate setup only" user="Standard">
+<param humanName="Swashplate Setup" name="H_SWASH_SETUP" documentation="Manual servo override for swashplate setup only" user="Advanced">
 <values>
 <value code="0">Disabled</value>
 <value code="1">Passthrough</value>
@@ -3725,49 +3725,49 @@
 <field name="Units">seconds</field>
 <field name="UnitText">seconds</field>
 </param>
-<param humanName="Number of Engines" name="H_NUM_ENGINES" documentation="Set number of active throttle controls for either single-engine or twin-engine helicopters. If twin-engine is selected RC7 input is used for engine #2 throttle control. RC8 input is used for engine #1 throttle control on both single and twin-engine helicopters. One of the SERVO outputs must be set to AutoThrottle2 to enable the throttle servo output for the second engine" user="Standard">
+<param humanName="Number of Engines" name="H_NUM_ENGINES" documentation="Set number of active throttle controls for either single-engine or twin-engine helicopters. If twin-engine is selected RC7 input is used for engine #2 throttle control. RC8 input is used for engine #1 throttle control on both single and twin-engine helicopters. One of the SERVO outputs must be set to AutoThrottle2 to enable the throttle servo output for the second engine" user="Advanced">
 <values>
 <value code="1">Single Engine</value>
 <value code="2">Twin Engine</value>
 </values>
 </param>
-<param humanName="Engine #2 Droop Response" name="H_GOV2_DROOP" documentation="AutoThrottle governor droop response under load for engine #2, normal settings of 10-50%. Higher value is quicker response but may cause surging. Adjust this to be as aggressive as possible without getting surging or Rrpm over-run when the governor engages. For twin-engine helicopters this will normally be tuned in static hover, adjusting the droop response higher on each engine until governor hunting is noted, then reduce the setting to where the governor is stable" user="Standard">
+<param humanName="Engine #2 Droop Response" name="H_GOV2_DROOP" documentation="AutoThrottle governor droop response under load for engine #2, normal settings of 10-50%. Higher value is quicker response but may cause surging. Adjust this to be as aggressive as possible without getting surging or Rrpm over-run when the governor engages. For twin-engine helicopters this will normally be tuned in static hover, adjusting the droop response higher on each engine until governor hunting is noted, then reduce the setting to where the governor is stable" user="Advanced">
 <field name="Range">10 50</field>
 <field name="Increment">1</field>
 <field name="Units">%</field>
 <field name="UnitText">percent</field>
 </param>
-<param humanName="Engine #2 TCGain" name="H_GOV2_TCGAIN" documentation="Percentage of throttle curve used for feedforward to throttle response during sudden loading or unloading of the rotor system for engine #2. If Rrpm drops below Rrpm low warning during full collective climb increase the throttle curve gain. If Rrpm drops excessively under heavy load also inspect the setting for maximum collective pitch" user="Standard">
+<param humanName="Engine #2 TCGain" name="H_GOV2_TCGAIN" documentation="Percentage of throttle curve used for feedforward to throttle response during sudden loading or unloading of the rotor system for engine #2. If Rrpm drops below Rrpm low warning during full collective climb increase the throttle curve gain. If Rrpm drops excessively under heavy load also inspect the setting for maximum collective pitch" user="Advanced">
 <field name="Range">0 100</field>
 <field name="Increment">1</field>
 <field name="Units">%</field>
 <field name="UnitText">percent</field>
 </param>
-<param humanName="Engine #2 P1" name="H_THROTTLE2_P1" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate all the way to its maximum negative or low collective pitch position for engine #2. This setting, combined with THROTTLE2_P2 corresponds to engine flight idle, rotors turning at rated speed with no engine load" user="Standard">
+<param humanName="Engine #2 P1" name="H_THROTTLE2_P1" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate all the way to its maximum negative or low collective pitch position for engine #2. This setting, combined with THROTTLE2_P2 corresponds to engine flight idle, rotors turning at rated speed with no engine load" user="Advanced">
 <field name="Range">0 100</field>
 <field name="Increment">1</field>
 <field name="Units">%throttle</field>
 <field name="UnitText">% Throttle</field>
 </param>
-<param humanName="Engine #2 P2" name="H_THROTTLE2_P2" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 25% of it's full collective travel for engine #2.This may or may not correspond to 25% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 25% of 12 degrees is 3 degrees, so this setting would correspond to +1 degree of positive pitch. This setting, combined with THROTTLE2_P1 corresponds to engine flight idle, rotors turning at rated speed with no engine load" user="Standard">
+<param humanName="Engine #2 P2" name="H_THROTTLE2_P2" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 25% of it's full collective travel for engine #2.This may or may not correspond to 25% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 25% of 12 degrees is 3 degrees, so this setting would correspond to +1 degree of positive pitch. This setting, combined with THROTTLE2_P1 corresponds to engine flight idle, rotors turning at rated speed with no engine load" user="Advanced">
 <field name="Range">0 100</field>
 <field name="Increment">1</field>
 <field name="Units">%throttle</field>
 <field name="UnitText">% Throttle</field>
 </param>
-<param humanName="Engine #2 P3" name="H_THROTTLE2_P3" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 50% of it's full collective travel for engine #2.This may or may not correspond to 50% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 50% of 12 degrees is 6 degrees, so this setting would correspond to +4 degrees of positive pitch" user="Standard">
+<param humanName="Engine #2 P3" name="H_THROTTLE2_P3" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 50% of it's full collective travel for engine #2.This may or may not correspond to 50% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 50% of 12 degrees is 6 degrees, so this setting would correspond to +4 degrees of positive pitch" user="Advanced">
 <field name="Range">0 100</field>
 <field name="Increment">1</field>
 <field name="Units">%throttle</field>
 <field name="UnitText">% Throttle</field>
 </param>
-<param humanName="Engine #2 P4" name="H_THROTTLE2_P4" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 75% of it's full collective travel for engine #2.This may or may not correspond to 75% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 75% of 12 degrees is 9 degrees, so this setting would correspond to +7 degrees of positive pitch" user="Standard">
+<param humanName="Engine #2 P4" name="H_THROTTLE2_P4" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 75% of it's full collective travel for engine #2.This may or may not correspond to 75% position of the collective stick, depending on the range of negative pitch in the setup. Example: if the setup has -2 degree to +10 degree collective pitch setup, the total range is 12 degrees. 75% of 12 degrees is 9 degrees, so this setting would correspond to +7 degrees of positive pitch" user="Advanced">
 <field name="Range">0 100</field>
 <field name="Increment">1</field>
 <field name="Units">%throttle</field>
 <field name="UnitText">% Throttle</field>
 </param>
-<param humanName="Engine #2 P5" name="H_THROTTLE2_P5" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 100% of it's full collective travel for engine #2, which is maximum positive pitch" user="Standard">
+<param humanName="Engine #2 P5" name="H_THROTTLE2_P5" documentation="Sets the engine's throttle percent for the throttle curve with the swashplate at 100% of it's full collective travel for engine #2, which is maximum positive pitch" user="Advanced">
 <field name="Range">0 100</field>
 <field name="Increment">1</field>
 <field name="Units">%throttle</field>
@@ -3775,7 +3775,7 @@
 </param>
 </parameters>
 <parameters name="H_SWASH">
-<param humanName="Swashplate Type" name="H_SWASH_TYPE" documentation="H3_120/H3_140 plates have SERVO1 left side, SERVO2 right side, SERVO3 (elevator) in rear. HR3_120/HR3_140 have SERVO1 right side, SERVO2 left side, SERVO3 (elevator) in front. For HR3 style swashplate use H3_120/H3_140 and reverse servo and collective directions as necessary. For all H3_90 swashplates use H4_90 and don't use servo output for the missing servo. For H4-90 SERVOS1 and 2 are left/right respectively, SERVOS3 and 4 are rear/front respectively. For H4-45 SERVOS1 and 2 are LF/RF, SERVOS3 and 4 are LR/RR. For four-servo swashplates fourth servo output must be enabled on Port5 with SERVO output labeled Cyclic4 " user="Standard">
+<param humanName="Swashplate Type" name="H_SWASH_TYPE" documentation="H3_120/H3_140 plates have SERVO1 left side, SERVO2 right side, SERVO3 (elevator) in rear. HR3_120/HR3_140 have SERVO1 right side, SERVO2 left side, SERVO3 (elevator) in front. For HR3 style swashplate use H3_120/H3_140 and reverse servo and collective directions as necessary. For all H3_90 swashplates use H4_90 and don't use servo output for the missing servo. For H4-90 SERVOS1 and 2 are left/right respectively, SERVOS3 and 4 are rear/front respectively. For H4-45 SERVOS1 and 2 are LF/RF, SERVOS3 and 4 are LR/RR. For four-servo swashplates fourth servo output must be enabled on Port5 with SERVO output labeled Cyclic4 " user="Advanced">
 <values>
 <value code="1">H1 non-CPPM</value>
 <value code="2">H3_140</value>
@@ -3784,13 +3784,13 @@
 <value code="5">H4_45</value>
 </values>
 </param>
-<param humanName="Collective Control Direction" name="H_SWASH_COLL_DIR" documentation="Direction collective moves to increase blade pitch. 0 for Normal, 1 for Reversed" user="Standard">
+<param humanName="Collective Control Direction" name="H_SWASH_COLL_DIR" documentation="Direction collective moves to increase blade pitch. 0 for Normal, 1 for Reversed" user="Advanced">
 <values>
 <value code="0">Normal</value>
 <value code="1">Reversed</value>
 </values>
 </param>
-<param humanName="Linearize swashplate servo mechanical throw" name="H_SWASH_LINEAR" documentation="This setting is primarily for four-servo swashplates to prevent servo binding. It linearizes the swashplate servo's mechanical output to account for nonlinear output due to arm rotation.  This requires a specific mechanical setup procedure to work properly.  The servo arm must be centered on the mechanical throw at the servo trim position and the servo trim position kept as close to 1500 pwm as possible. Leveling the swashplate can only be done through the swash links. After the swashplate is level the pitch links should be adjusted at a value of 1500 pwm to achieve zero blade pitch" user="Standard">
+<param humanName="Linearize swashplate servo mechanical throw" name="H_SWASH_LINEAR" documentation="This setting is primarily for four-servo swashplates to prevent servo binding. It linearizes the swashplate servo's mechanical output to account for nonlinear output due to arm rotation.  This requires a specific mechanical setup procedure to work properly.  The servo arm must be centered on the mechanical throw at the servo trim position and the servo trim position kept as close to 1500 pwm as possible. Leveling the swashplate can only be done through the swash links. After the swashplate is level the pitch links should be adjusted at a value of 1500 pwm to achieve zero blade pitch" user="Advanced">
 <values>
 <value code="0">Disabled</value>
 <value code="1">Enabled</value>

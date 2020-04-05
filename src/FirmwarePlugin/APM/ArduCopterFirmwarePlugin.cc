@@ -63,22 +63,22 @@ ArduCopterFirmwarePlugin::ArduCopterFirmwarePlugin(void)
         APMCopterMode(APMCopterMode::RTL,           true),
         APMCopterMode(APMCopterMode::CIRCLE,        true),
         APMCopterMode(APMCopterMode::LAND,          true),
-        APMCopterMode(APMCopterMode::DRIFT,         true),
-        APMCopterMode(APMCopterMode::SPORT,         true),
-        APMCopterMode(APMCopterMode::FLIP,          true),
-        APMCopterMode(APMCopterMode::AUTOTUNE,      true),
+//        APMCopterMode(APMCopterMode::DRIFT,         true),
+//        APMCopterMode(APMCopterMode::SPORT,         true),
+//        APMCopterMode(APMCopterMode::FLIP,          true),
+//        APMCopterMode(APMCopterMode::AUTOTUNE,      true),
         APMCopterMode(APMCopterMode::POS_HOLD,      true),
-        APMCopterMode(APMCopterMode::BRAKE,         true),
-        APMCopterMode(APMCopterMode::THROW,         true),
-        APMCopterMode(APMCopterMode::AVOID_ADSB,    true),
-        APMCopterMode(APMCopterMode::GUIDED_NOGPS,  true),
-        APMCopterMode(APMCopterMode::SMART_RTL,     true),
+//        APMCopterMode(APMCopterMode::BRAKE,         true),
+//        APMCopterMode(APMCopterMode::THROW,         true),
+//        APMCopterMode(APMCopterMode::AVOID_ADSB,    true),
+//        APMCopterMode(APMCopterMode::GUIDED_NOGPS,  true),
+//        APMCopterMode(APMCopterMode::SMART_RTL,     true),
         APMCopterMode(APMCopterMode::FLOWHOLD,      true),
 #if 0
     // Follow me not ready for Stable
         APMCopterMode(APMCopterMode::FOLLOW,        true),
 #endif
-        APMCopterMode(APMCopterMode::ZIGZAG,        true),
+//        APMCopterMode(APMCopterMode::ZIGZAG,        true),
     });
 
     if (!_remapParamNameIntialized) {
