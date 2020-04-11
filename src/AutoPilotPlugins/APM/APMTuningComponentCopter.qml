@@ -30,8 +30,6 @@ SetupPage {
 
             FactPanelController { id: controller; }
 
-            property bool _atcInputTCAvailable: controller.parameterExists(-1, "ATC_INPUT_TC")
-            property Fact _atcInputTC:          controller.getParameterFact(-1, "ATC_INPUT_TC", false)
             property Fact _ratePitchVff:        controller.getParameterFact(-1, "ATC_RAT_RLL_VFF")
             property Fact _rateRollVff:         controller.getParameterFact(-1, "ATC_RAT_PIT_VFF")
             property Fact _rateRollP:           controller.getParameterFact(-1, "ATC_RAT_RLL_P")
@@ -67,9 +65,6 @@ SetupPage {
                 rateYawP.value = _rateYawP.value * 1000
                 rateYawI.value = _rateYawI.value * 1000
                 rateYawD.value = _rateYawD.value * 10000
-                if (_atcInputTCAvailable) {
-                    atcInputTC.value = _atcInputTC.value
-                }
                 _loadComplete = true
             }
 
@@ -307,37 +302,6 @@ SetupPage {
                                 onValueChanged: {
                                     if (_loadComplete) {
                                         _rateYawD.value = value * 0.0001
-                                    }
-                                }
-                            }
-                        }
-
-                        Column {
-                            anchors.left:       parent.left
-                            anchors.right:      parent.right
-                            visible:            _atcInputTCAvailable
-
-                            QGCLabel {
-                                text:       qsTr("RC Roll/Pitch Feel")
-                                font.family: ScreenTools.demiboldFontFamily
-                            }
-
-                            QGCLabel {
-                                text: qsTr("Slide to the right for softer control, slide to the left for more crisp control")
-                            }
-
-                            Slider {
-                                id:                 atcInputTC
-                                anchors.left:       parent.left
-                                anchors.right:      parent.right
-                                minimumValue:       _atcInputTC.min
-                                maximumValue:       _atcInputTC.max
-                                stepSize:           _atcInputTC.increment
-                                tickmarksEnabled:   true
-
-                                onValueChanged: {
-                                    if (_loadComplete) {
-                                        _atcInputTC.value = value
                                     }
                                 }
                             }

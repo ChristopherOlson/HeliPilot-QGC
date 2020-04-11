@@ -30,6 +30,7 @@ public:
     QUrl setupSource(void) const override;
     QUrl summaryQmlSource(void) const override;
     bool allowSetupWhileArmed(void) const override { return true; }
+    bool allowSetupWhileFlying  (void) const override { return true; }
 
 private:
     const QString   _name;
