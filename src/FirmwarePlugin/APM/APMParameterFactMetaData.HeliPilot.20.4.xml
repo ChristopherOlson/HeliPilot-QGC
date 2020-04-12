@@ -3720,7 +3720,7 @@
 <field name="Units">%throttle</field>
 <field name="UnitText">% Throttle</field>
 </param>
-<param humanName="Throttle Ramp Time" name="H_THROTTLE_RAMP" documentation="Time in seconds for throttle to ramp from ground idle to AutoThrottle when manual throttle(s) are suddenly advanced from fuel cutoff to current throttle curve position. This setting is used primarily by piston and turbine engines to smoothly engage the transmission clutch. However, it can also be used for electric ESC's that do not have an internal soft-start. If used with electric ESC with soft-start it is recommended to set this to 1 second so as to not confuse the ESC's soft-start function" user="Standard">
+<param humanName="Throttle Ramp Time" name="H_THROTTLE_RAMP" documentation="SET TO ZERO TO USE ROTOR SPEED SENSOR FOR RUNUP (recommended). Otherwise time in seconds for throttle to ramp from ground idle to AutoThrottle when manual throttle(s) are suddenly advanced from fuel cutoff to current throttle curve position. This setting is used primarily by piston and turbine engines to smoothly engage the transmission clutch. However, it can also be used for electric ESC's that do not have an internal soft-start. If used with electric ESC with soft-start it is recommended to set this to 1 second so as to not confuse the ESC's soft-start function" user="Standard">
 <field name="Range">0 60</field>
 <field name="Units">seconds</field>
 <field name="UnitText">seconds</field>
