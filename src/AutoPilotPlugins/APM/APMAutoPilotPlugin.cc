@@ -131,9 +131,12 @@ const QVariantList& APMAutoPilotPlugin::vehicleComponents(void)
             _tuningComponent->setupTriggerSignals();
             _components.append(QVariant::fromValue((VehicleComponent*)_tuningComponent));
 
+            // no camera component for HeliPilot v20.04
+            if (_vehicle->vehicleType() == MAV_TYPE_HELICOPTER && (_vehicle->versionCompare(20, 4, 0) <= 0)) {
             _cameraComponent = new APMCameraComponent(_vehicle, this);
             _cameraComponent->setupTriggerSignals();
             _components.append(QVariant::fromValue((VehicleComponent*)_cameraComponent));
+            }
 
             if (_vehicle->sub()) {
                 _lightsComponent = new APMLightsComponent(_vehicle, this);
